@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Sweet Candy Gallery 🍭</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -19,16 +23,13 @@
             min-height: 100vh;
             overflow-x: hidden;
 
-            /* พื้นหลังดินแดนขนมหวาน */
             background:
-                radial-gradient(circle at 10% 20%, rgba(255,255,255,.8) 0 50px, transparent 51px),
-                radial-gradient(circle at 90% 30%, rgba(255,255,255,.6) 0 70px, transparent 71px),
                 linear-gradient(
                     135deg,
-                    #ffd6e7 0%,
-                    #ffc5df 30%,
-                    #f8d7ff 65%,
-                    #d9e9ff 100%
+                    #ffd6e7,
+                    #ffc5df,
+                    #f8d7ff,
+                    #d9e9ff
                 );
         }
 
@@ -42,13 +43,12 @@
             font-size: 42px;
             pointer-events: none;
             animation: floatCandy 8s ease-in-out infinite;
-            opacity: .85;
+            opacity: 0.85;
         }
 
         .candy:nth-child(1) {
             top: 10%;
             left: 5%;
-            animation-delay: 0s;
         }
 
         .candy:nth-child(2) {
@@ -88,17 +88,24 @@
         }
 
         @keyframes floatCandy {
-            0%, 100% {
-                transform: translateY(0) rotate(-10deg);
+
+            0%,
+            100% {
+                transform:
+                    translateY(0)
+                    rotate(-10deg);
             }
 
             50% {
-                transform: translateY(-35px) rotate(15deg);
+                transform:
+                    translateY(-35px)
+                    rotate(15deg);
             }
+
         }
 
         /* =========================
-           Header
+           ส่วนหัว
         ========================== */
 
         header {
@@ -110,21 +117,34 @@
 
         .badge {
             display: inline-block;
-            background: rgba(255,255,255,.8);
+
+            background: rgba(255, 255, 255, 0.8);
+
             padding: 10px 25px;
+
             border-radius: 50px;
+
             color: #ed5c98;
+
             font-weight: bold;
-            box-shadow: 0 8px 20px rgba(221, 105, 153, .15);
+
+            box-shadow:
+                0 8px 20px
+                rgba(221, 105, 153, 0.15);
+
             margin-bottom: 20px;
         }
 
         header h1 {
             font-size: clamp(40px, 7vw, 70px);
+
             color: #e84f91;
+
             text-shadow:
-                3px 3px 0 #fff,
-                6px 6px 0 rgba(210, 87, 139, .15);
+                3px 3px 0 #ffffff,
+                6px 6px 0
+                rgba(210, 87, 139, 0.15);
+
             margin-bottom: 15px;
         }
 
@@ -134,34 +154,43 @@
         }
 
         /* =========================
-           Candy banner
+           Banner
         ========================== */
 
         .banner {
             position: relative;
             z-index: 2;
+
             max-width: 900px;
+
             margin: 10px auto 35px;
+
             padding: 20px 30px;
+
             text-align: center;
 
-            background: linear-gradient(
-                90deg,
-                #ff8fbd,
-                #ffacd0,
-                #d99df5
-            );
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff8fbd,
+                    #ffacd0,
+                    #d99df5
+                );
 
             border-radius: 50px;
+
             color: white;
+
             font-size: 22px;
+
             font-weight: bold;
 
-            border: 5px solid rgba(255,255,255,.8);
+            border: 5px solid
+                rgba(255, 255, 255, 0.8);
 
             box-shadow:
-                0 15px 30px rgba(210, 95, 150, .2),
-                inset 0 2px 0 rgba(255,255,255,.6);
+                0 15px 30px
+                rgba(210, 95, 150, 0.2);
         }
 
         /* =========================
@@ -173,11 +202,16 @@
             z-index: 2;
 
             max-width: 1200px;
+
             margin: auto;
+
             padding: 20px;
 
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 30px;
         }
 
@@ -187,47 +221,68 @@
 
         .card {
             position: relative;
-            background: rgba(255,255,255,.9);
+
+            background:
+                rgba(255, 255, 255, 0.92);
+
             border-radius: 28px;
+
             overflow: hidden;
 
-            border: 5px solid rgba(255,255,255,.8);
+            border: 5px solid
+                rgba(255, 255, 255, 0.8);
 
             box-shadow:
-                0 15px 35px rgba(190, 91, 140, .18);
+                0 15px 35px
+                rgba(190, 91, 140, 0.18);
 
             transition:
-                transform .35s ease,
-                box-shadow .35s ease;
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
         }
 
         .card:hover {
-            transform: translateY(-12px) rotate(-1deg);
+            transform:
+                translateY(-12px)
+                rotate(-1deg);
 
             box-shadow:
-                0 25px 50px rgba(190, 91, 140, .28);
+                0 25px 50px
+                rgba(190, 91, 140, 0.28);
         }
 
-        /* มุมหัวใจ */
+        /* =========================
+           หัวใจ
+        ========================== */
+
         .heart {
             position: absolute;
+
             z-index: 5;
+
             top: 15px;
+
             right: 15px;
 
             width: 45px;
+
             height: 45px;
 
             display: flex;
+
             justify-content: center;
+
             align-items: center;
 
             background: white;
+
             border-radius: 50%;
 
             font-size: 23px;
 
-            box-shadow: 0 5px 15px rgba(0,0,0,.12);
+            box-shadow:
+                0 5px 15px
+                rgba(0, 0, 0, 0.12);
         }
 
         /* =========================
@@ -236,17 +291,23 @@
 
         .image-box {
             height: 350px;
+
             overflow: hidden;
+
             background: #ffddec;
         }
 
         .card img {
             width: 100%;
+
             height: 100%;
+
             object-fit: cover;
+
             display: block;
 
-            transition: transform .6s ease;
+            transition:
+                transform 0.6s ease;
         }
 
         .card:hover img {
@@ -259,6 +320,7 @@
 
         .content {
             padding: 25px;
+
             text-align: center;
         }
 
@@ -266,85 +328,99 @@
             display: inline-block;
 
             padding: 8px 22px;
+
             margin-bottom: 15px;
 
             border-radius: 50px;
 
-            background: linear-gradient(
-                90deg,
-                #ff8dbd,
-                #d69bf5
-            );
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff8dbd,
+                    #d69bf5
+                );
 
             color: white;
-            font-weight: bold;
 
-            box-shadow: 0 5px 12px rgba(220, 93, 151, .2);
+            font-weight: bold;
         }
 
         .content h2 {
             font-size: 25px;
+
             color: #e45191;
+
             margin-bottom: 12px;
         }
 
         .content h3 {
             font-size: 16px;
+
             color: #b96aa1;
+
             margin-bottom: 12px;
         }
 
         .content p {
             font-size: 15px;
+
             line-height: 1.9;
+
             color: #74566a;
+
             text-align: left;
         }
 
         /* =========================
-           ปุ่มดูรูป
+           ปุ่ม
         ========================== */
 
         .view-button {
             border: none;
+
             margin-top: 20px;
+
             padding: 11px 25px;
 
             border-radius: 30px;
 
             background: #ff75ad;
+
             color: white;
 
             font-size: 15px;
+
             font-weight: bold;
 
             cursor: pointer;
 
-            transition: .3s;
-
-            box-shadow: 0 7px 15px rgba(225, 83, 143, .2);
+            transition: 0.3s;
         }
 
         .view-button:hover {
             background: #e94f91;
+
             transform: scale(1.05);
         }
 
         /* =========================
-           กล่องเปิดรูปใหญ่
+           กล่องรูปใหญ่
         ========================== */
 
         .modal {
             display: none;
 
             position: fixed;
+
             z-index: 100;
 
             inset: 0;
 
-            background: rgba(84, 42, 66, .75);
+            background:
+                rgba(84, 42, 66, 0.75);
 
             justify-content: center;
+
             align-items: center;
 
             padding: 20px;
@@ -356,6 +432,7 @@
 
         .modal-content {
             max-width: 900px;
+
             max-height: 90vh;
 
             position: relative;
@@ -363,68 +440,86 @@
 
         .modal-content img {
             max-width: 100%;
+
             max-height: 85vh;
 
             border-radius: 20px;
+
             border: 6px solid white;
 
-            box-shadow: 0 20px 60px rgba(0,0,0,.4);
+            box-shadow:
+                0 20px 60px
+                rgba(0, 0, 0, 0.4);
         }
 
         .close {
             position: absolute;
 
             top: -20px;
+
             right: -20px;
 
             width: 45px;
+
             height: 45px;
 
             border: none;
+
             border-radius: 50%;
 
             background: white;
+
             color: #e84f91;
 
             font-size: 25px;
+
             font-weight: bold;
 
             cursor: pointer;
         }
 
         /* =========================
-           กล่องความรู้ ORV
+           ส่วนเกี่ยวกับ ORV
         ========================== */
 
         .info {
             position: relative;
+
             z-index: 2;
 
             max-width: 1100px;
+
             margin: 45px auto;
 
             padding: 35px;
 
-            background: rgba(255,255,255,.88);
+            background:
+                rgba(255, 255, 255, 0.88);
 
             border-radius: 30px;
 
             border: 4px solid white;
 
-            box-shadow: 0 15px 35px rgba(190, 91, 140, .15);
+            box-shadow:
+                0 15px 35px
+                rgba(190, 91, 140, 0.15);
 
             text-align: center;
         }
 
         .info h2 {
             color: #e84f91;
+
             font-size: 30px;
+
             margin-bottom: 15px;
         }
 
         .info p {
             line-height: 2;
+
             color: #705267;
+
             font-size: 16px;
         }
 
@@ -436,12 +531,15 @@
             display: inline-block;
 
             padding: 8px 18px;
+
             margin: 5px;
 
             background: #ffe0ef;
+
             color: #d95391;
 
             border-radius: 30px;
+
             font-weight: bold;
         }
 
@@ -451,22 +549,26 @@
 
         footer {
             position: relative;
+
             z-index: 2;
 
             margin-top: 60px;
+
             padding: 40px 20px;
 
             text-align: center;
 
-            background: linear-gradient(
-                135deg,
-                #ed75aa,
-                #c999ef
-            );
+            background:
+                linear-gradient(
+                    135deg,
+                    #ed75aa,
+                    #c999ef
+                );
 
             color: white;
 
-            border-radius: 50px 50px 0 0;
+            border-radius:
+                50px 50px 0 0;
         }
 
         footer h2 {
@@ -482,9 +584,12 @@
         ========================== */
 
         @media (max-width: 950px) {
+
             .gallery {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
+
         }
 
         @media (max-width: 650px) {
@@ -500,6 +605,7 @@
             .banner {
                 margin-left: 20px;
                 margin-right: 20px;
+
                 font-size: 17px;
             }
 
@@ -518,30 +624,38 @@
             .info {
                 margin-left: 20px;
                 margin-right: 20px;
+
                 padding: 25px;
             }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- =====================================
-         ขนมลอยในพื้นหลัง
-    ====================================== -->
+
+    <!-- ขนมตกแต่ง -->
 
     <div class="candy">🍭</div>
+
     <div class="candy">🧁</div>
+
     <div class="candy">🍩</div>
+
     <div class="candy">🍰</div>
+
     <div class="candy">🍬</div>
+
     <div class="candy">🍪</div>
+
     <div class="candy">🍓</div>
 
 
-    <!-- =====================================
-         ส่วนหัว
-    ====================================== -->
+    <!-- ส่วนหัว -->
 
     <header>
 
@@ -560,25 +674,27 @@
     </header>
 
 
-    <!-- Banner -->
+    <!-- แบนเนอร์ -->
 
     <div class="banner">
+
         💗 รวมภาพที่ฉันชื่นชอบ 3 รูป 💗
+
     </div>
 
 
-    <!-- =====================================
-         Gallery
-    ====================================== -->
+    <!-- แกลเลอรี -->
 
     <section class="gallery">
 
 
-        <!-- ================= รูปที่ 1 ================= -->
+        <!-- รูปที่ 1 -->
 
         <div class="card">
 
-            <div class="heart">💗</div>
+            <div class="heart">
+                💗
+            </div>
 
             <div class="image-box">
 
@@ -604,19 +720,28 @@
                 </h3>
 
                 <p>
+
                     ภาพนี้มาจากเรื่อง
-                    <b>Omniscient Reader's Viewpoint</b>
-                    หรือที่แฟน ๆ มักเรียกสั้น ๆ ว่า
+                    <b>
+                        Omniscient Reader's Viewpoint
+                    </b>
+
+                    หรือเรียกสั้น ๆ ว่า
                     <b>ORV</b>
 
                     เรื่องราวเกี่ยวกับ
                     <b>คิมดกจา (Kim Dokja)</b>
+
                     ชายหนุ่มธรรมดาที่อ่านนิยายเรื่องหนึ่ง
                     จนจบเพียงคนเดียว
 
-                    แต่วันหนึ่งโลกในนิยายกลับกลายเป็นความจริง
-                    ทำให้เขาต้องใช้ความรู้จากนิยาย
-                    เพื่อเอาชีวิตรอดและเปลี่ยนแปลงเรื่องราว
+                    แต่วันหนึ่งโลกในนิยาย
+                    กลับกลายเป็นความจริง
+
+                    เขาจึงต้องใช้ความรู้จากนิยาย
+                    เพื่อเอาชีวิตรอด
+                    และเปลี่ยนแปลงเรื่องราว
+
                 </p>
 
                 <button
@@ -631,16 +756,18 @@
         </div>
 
 
-        <!-- ================= รูปที่ 2 ================= -->
+        <!-- รูปที่ 2 -->
 
         <div class="card">
 
-            <div class="heart">🍓</div>
+            <div class="heart">
+                🍓
+            </div>
 
             <div class="image-box">
 
                 <img
-                    src="https://static.wikia.nocookie.net/shipping/images/0/05/KimCom_official_art_by_Sleepy-C.png/revision/latest?cb=20240320232535"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB2LDrC0tpvYwP2F12CIMpZA9yhdQUQXBuYRsR-Y8glw&s=10"
                     alt="KimCom"
                 >
 
@@ -661,17 +788,22 @@
                 </h3>
 
                 <p>
-                    ภาพนี้เป็นภาพจาก
+
+                    ภาพนี้เป็นภาพที่เกี่ยวข้องกับ
                     <b>KimCom</b>
-                    ซึ่งเกี่ยวข้องกับตัวละครจาก
-                    <b>Omniscient Reader's Viewpoint</b>
 
-                    โดยชื่อ KimCom มักใช้เรียกกลุ่มตัวละคร
-                    และความสัมพันธ์ระหว่างตัวละครสำคัญในเรื่อง
+                    ซึ่งเป็นชื่อที่แฟน ๆ ใช้เรียก
+                    ความสัมพันธ์และกลุ่มตัวละคร
+                    จากเรื่อง
+                    <b>
+                        Omniscient Reader's Viewpoint
+                    </b>
 
-                    ภาพนี้มีบรรยากาศที่อบอุ่นและแตกต่างจาก
-                    ฉากการต่อสู้ในเรื่อง จึงเหมาะกับธีม
-                    ดินแดนขนมหวานของเว็บไซต์นี้มาก ๆ 🍰
+                    ภาพมีบรรยากาศอบอุ่น
+                    และแตกต่างจากฉากการต่อสู้
+                    ในเรื่อง
+
+
                 </p>
 
                 <button
@@ -686,17 +818,19 @@
         </div>
 
 
-        <!-- ================= รูปที่ 3 ================= -->
+        <!-- รูปที่ 3 -->
 
         <div class="card">
 
-            <div class="heart">💜</div>
+            <div class="heart">
+                💜
+            </div>
 
             <div class="image-box">
 
                 <img
                     src="https://static.wikia.nocookie.net/omniscient-readers-viewpoint/images/1/1c/Od_kdj_promo_art.png/revision/latest/scale-to-width-down/250?cb=20241006224406"
-                    alt="Kim Dokja - Omniscient Reader's Viewpoint"
+                    alt="Kim Dokja"
                 >
 
             </div>
@@ -716,19 +850,20 @@
                 </h3>
 
                 <p>
-                    ภาพนี้เป็นภาพโปรโมตของ
-                    <b>คิมดกจา (Kim Dokja)</b>
-                    ตัวเอกของเรื่อง
 
-                    จุดเด่นของตัวละครคือการเป็น
-                    “นักอ่าน” ที่รู้เรื่องราวของนิยาย
-                    มากกว่าคนอื่น เพราะเขาเป็นคนเดียว
-                    ที่อ่านนิยายเรื่องนั้นจนจบ
+                    ภาพนี้เป็นภาพของ
+                    <b>
+                        ความฝันที่เก่าแก่ที่สุด (Oldest dream)
+                    </b>
 
-                    ความรู้ของเขาจึงกลายเป็นสิ่งสำคัญ
-                    ในการรับมือกับเหตุการณ์ต่าง ๆ
-                    และช่วยให้เขาพยายามเปลี่ยนแปลง
-                    ชะตากรรมของโลกในเรื่อง
+                    ตัวละครสำคัญของเรื่องราวทั้งหมด
+
+                    ผู้ที่ฝันเพื่อให้เรื่องราวดำเนิน
+                    Kim doja ในร่างของเด็กชาย
+                    ผู้ที่มีพลังในการขับเคลื่อนเรื่องราวทั้งหมด
+                    เพื่อให้คนทั้งโลกยังมีชีวิตรอด
+
+
                 </p>
 
                 <button
@@ -742,12 +877,11 @@
 
         </div>
 
+
     </section>
 
 
-    <!-- =====================================
-         เกี่ยวกับ ORV
-    ====================================== -->
+    <!-- เกี่ยวกับ ORV -->
 
     <section class="info">
 
@@ -756,38 +890,62 @@
         </h2>
 
         <p>
-            <b>Omniscient Reader's Viewpoint</b>
-            เป็นเรื่องราวแฟนตาซีและเอาชีวิตรอด
-            ที่มีแนวคิดเกี่ยวกับ “นิยายที่กลายเป็นความจริง”
+
+            <b>
+                Omniscient Reader's Viewpoint
+            </b>
+
+            เป็นเรื่องราวแนวแฟนตาซี
+            และการเอาชีวิตรอด
+
+            มีแนวคิดเกี่ยวกับ
+            “นิยายที่กลายเป็นความจริง”
 
             ตัวละครหลักอย่าง
             <b>คิมดกจา</b>
+
             ต้องนำความรู้จากเรื่องที่เขาเคยอ่าน
             มาใช้รับมือกับสถานการณ์ต่าง ๆ
 
-            จุดที่น่าสนใจของเรื่องคือ
-            ความสัมพันธ์ระหว่าง “ผู้อ่าน”
+            จุดที่น่าสนใจคือความสัมพันธ์ระหว่าง
+            “ผู้อ่าน”
             “ตัวละคร”
-            และ “เรื่องราว”
-            ที่ค่อย ๆ เชื่อมโยงกัน
+            และ
+            “เรื่องราว”
+
+            ที่ค่อย ๆ เชื่อมโยงเข้าด้วยกัน
+
         </p>
+
 
         <div class="tags">
 
-            <span class="tag">📖 นักอ่าน</span>
-            <span class="tag">🌌 แฟนตาซี</span>
-            <span class="tag">⚔️ เอาชีวิตรอด</span>
-            <span class="tag">✨ โลกในนิยาย</span>
-            <span class="tag">🍭 Candy Theme</span>
+            <span class="tag">
+                📖 นักอ่าน
+            </span>
+
+            <span class="tag">
+                🌌 แฟนตาซี
+            </span>
+
+            <span class="tag">
+                ⚔️ เอาชีวิตรอด
+            </span>
+
+            <span class="tag">
+                ✨ โลกในนิยาย
+            </span>
+
+            <span class="tag">
+                🍭 Candy Theme
+            </span>
 
         </div>
 
     </section>
 
 
-    <!-- =====================================
-         Footer
-    ====================================== -->
+    <!-- Footer -->
 
     <footer>
 
@@ -796,8 +954,9 @@
         </h2>
 
         <p>
-            “บางภาพอาจเป็นเพียงรูปภาพ
-            แต่สำหรับฉันมันคือความทรงจำที่มีความหมาย 💗”
+            บางภาพอาจเป็นเพียงรูปภาพ
+            แต่สำหรับฉัน
+            มันคือความทรงจำที่มีความหมาย 💗
         </p>
 
         <p>
@@ -811,9 +970,7 @@
     </footer>
 
 
-    <!-- =====================================
-         Modal ดูรูปใหญ่
-    ====================================== -->
+    <!-- หน้าต่างแสดงรูปใหญ่ -->
 
     <div
         class="modal"
@@ -844,47 +1001,62 @@
     </div>
 
 
-    <!-- =====================================
-         JavaScript
-    ====================================== -->
+    <!-- JavaScript -->
 
     <script>
 
         function openImage(button) {
 
-            const card = button.closest(".card");
+            const card =
+                button.closest(".card");
 
-            const image = card.querySelector("img");
+            const image =
+                card.querySelector("img");
 
             const modal =
-                document.getElementById("imageModal");
+                document.getElementById(
+                    "imageModal"
+                );
 
             const largeImage =
-                document.getElementById("largeImage");
+                document.getElementById(
+                    "largeImage"
+                );
 
-            largeImage.src = image.src;
+            largeImage.src =
+                image.src;
 
-            modal.classList.add("active");
+            modal.classList.add(
+                "active"
+            );
+
         }
 
 
         function closeImage() {
 
             const modal =
-                document.getElementById("imageModal");
+                document.getElementById(
+                    "imageModal"
+                );
 
-            modal.classList.remove("active");
+            modal.classList.remove(
+                "active"
+            );
+
         }
 
-
-        /* กด ESC เพื่อปิดรูป */
 
         document.addEventListener(
             "keydown",
             function(event) {
 
-                if (event.key === "Escape") {
+                if (
+                    event.key === "Escape"
+                ) {
+
                     closeImage();
+
                 }
 
             }
@@ -892,5 +1064,7 @@
 
     </script>
 
+
 </body>
+
 </html>
