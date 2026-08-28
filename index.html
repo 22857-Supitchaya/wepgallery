@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Sweet Candy Gallery 🍭</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Itim&family=Prompt:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet">
+
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Itim&family=Prompt:wght@300;400;500;600;700;800&display=swap');
+
+/* =========================================================
+   🍭 SWEET CANDY GALLERY
+   ALL-IN-ONE VERSION
+========================================================= */
 
 *{
     margin:0;
@@ -20,317 +38,837 @@ html{
 }
 
 body{
+
     font-family:"Prompt","Segoe UI",sans-serif;
+
     color:#633d52;
+
     min-height:100vh;
+
     overflow-x:hidden;
 
     background:
-        radial-gradient(circle at 10% 20%,rgba(255,255,255,.8) 0 2px,transparent 3px),
-        radial-gradient(circle at 80% 15%,rgba(255,255,255,.7) 0 3px,transparent 4px),
-        radial-gradient(circle at 30% 80%,rgba(255,255,255,.6) 0 2px,transparent 3px),
-        linear-gradient(135deg,#ffd5e8,#fbc8ed,#dfd0ff,#c9e9ff);
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(255,255,255,.75) 0 2px,
+            transparent 3px
+        ),
+        radial-gradient(
+            circle at 80% 15%,
+            rgba(255,255,255,.7) 0 3px,
+            transparent 4px
+        ),
+        radial-gradient(
+            circle at 30% 80%,
+            rgba(255,255,255,.6) 0 2px,
+            transparent 3px
+        ),
+        linear-gradient(
+            135deg,
+            #ffd5e8,
+            #fbc8ed,
+            #dfd0ff,
+            #c9e9ff
+        );
 
-    background-size:auto,auto,auto,400% 400%;
-    animation:bgMove 15s ease infinite;
+    background-size:
+        auto,
+        auto,
+        auto,
+        400% 400%;
+
+    animation:
+        backgroundMove
+        15s ease infinite;
 }
+
+
+/* =========================================================
+   🌌 BACKGROUND GLOW
+========================================================= */
 
 body::before{
+
     content:"";
+
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
-    z-index:-2;
+
+    z-index:-5;
 
     background:
-        radial-gradient(circle at 20% 30%,rgba(255,111,180,.25),transparent 25%),
-        radial-gradient(circle at 80% 70%,rgba(173,119,255,.25),transparent 28%),
-        radial-gradient(circle at 50% 10%,rgba(255,255,255,.35),transparent 20%);
+
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(255,111,180,.25),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(173,119,255,.25),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(255,255,255,.35),
+            transparent 20%
+        );
 
     filter:blur(30px);
-    animation:aurora 10s ease-in-out infinite alternate;
+
+    animation:
+        aurora
+        10s ease-in-out infinite alternate;
 }
 
+
 body::after{
+
     content:"";
+
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
+
     z-index:9998;
 
     background:
+
         radial-gradient(
-            circle 180px at var(--mouse-x,50%) var(--mouse-y,50%),
-            rgba(255,255,255,.18),
+            circle 180px at
+            var(--mouse-x,50%)
+            var(--mouse-y,50%),
+            rgba(255,255,255,.22),
             transparent 70%
         );
 }
 
-@keyframes bgMove{
-    0%,100%{background-position:0% 50%}
-    50%{background-position:100% 50%}
+
+@keyframes backgroundMove{
+
+    0%,100%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
 }
+
 
 @keyframes aurora{
+
     from{
-        transform:translate(-5%,-3%) scale(1);
+        transform:
+            translate(-5%,-3%)
+            scale(1);
     }
+
     to{
-        transform:translate(5%,4%) scale(1.15);
+        transform:
+            translate(5%,4%)
+            scale(1.15);
     }
 }
 
-/* ========================================
-   🍭 OPENING SCREEN
-======================================== */
 
-.intro{
+/* =========================================================
+   🍭 INTRO
+========================================================= */
+
+#intro{
+
     position:fixed;
+
     inset:0;
-    z-index:20000;
+
+    z-index:99999;
 
     display:flex;
-    justify-content:center;
+
     align-items:center;
-    text-align:center;
+
+    justify-content:center;
 
     overflow:hidden;
 
     background:
-        radial-gradient(circle at 50% 45%,#fff7fc 0%,#ffd9ed 30%,#d9c7ff 70%,#a9cfff 100%);
 
-    animation:introExit 1s ease 4.5s forwards;
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255,255,255,.9),
+            transparent 24%
+        ),
+
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(255,255,255,.3),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            135deg,
+            #ff9fca,
+            #e9aef5,
+            #b8c5ff,
+            #9ee7ff
+        );
+
+    background-size:200% 200%;
+
+    animation:
+        introBackground
+        8s ease infinite;
+
+    transition:
+
+        opacity 1s ease,
+
+        transform 1s
+        cubic-bezier(.7,0,.2,1);
 }
 
-.intro::before{
-    content:"";
-    position:absolute;
-    width:500px;
-    height:500px;
 
-    border-radius:50%;
+#intro.hide{
 
-    background:
-        radial-gradient(circle,
-        rgba(255,255,255,.9),
-        rgba(255,143,202,.25),
-        transparent 70%);
+    opacity:0;
 
-    animation:introGlow 2s ease-in-out infinite alternate;
+    transform:
+        scale(1.18);
+
+    pointer-events:none;
 }
 
-@keyframes introGlow{
-    from{
-        transform:scale(.8);
-        opacity:.6;
+
+@keyframes introBackground{
+
+    0%,100%{
+        background-position:0% 50%;
     }
-    to{
-        transform:scale(1.3);
-        opacity:1;
+
+    50%{
+        background-position:100% 50%;
     }
 }
+
+
+/* =========================================================
+   🍰 INTRO CONTENT
+========================================================= */
 
 .intro-content{
+
     position:relative;
-    z-index:2;
 
-    animation:introContent 1.2s cubic-bezier(.2,1.5,.4,1);
+    z-index:10;
+
+    text-align:center;
+
+    animation:
+        introAppear
+        1.2s
+        cubic-bezier(.2,1.4,.4,1)
+        both;
 }
 
-.intro-candy{
-    font-size:90px;
 
-    filter:drop-shadow(0 15px 20px rgba(150,70,140,.2));
+@keyframes introAppear{
 
-    animation:candySpin 3s ease-in-out infinite;
+    from{
+        opacity:0;
+
+        transform:
+            translateY(60px)
+            scale(.7);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
 }
 
-@keyframes candySpin{
+
+.intro-sparkles{
+
+    color:white;
+
+    font-size:30px;
+
+    letter-spacing:15px;
+
+    margin-bottom:10px;
+
+    animation:
+        sparkle
+        2s ease-in-out infinite;
+}
+
+
+@keyframes sparkle{
+
     0%,100%{
-        transform:rotate(-12deg) translateY(0);
+        opacity:.45;
+
+        transform:
+            scale(.9);
     }
+
     50%{
-        transform:rotate(12deg) translateY(-20px);
+        opacity:1;
+
+        transform:
+            scale(1.15);
     }
 }
 
-.intro h1{
-    margin-top:15px;
 
-    font-family:"Itim",cursive;
-    font-size:clamp(55px,10vw,105px);
+/* =========================================================
+   🍭 INTRO LOGO
+========================================================= */
+
+.intro-logo{
+
+    width:125px;
+
+    height:125px;
+
+    margin:
+        0 auto 20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:70px;
 
     background:
+        rgba(255,255,255,.75);
+
+    border:
+
+        6px solid
+        rgba(255,255,255,.9);
+
+    border-radius:
+
+        43% 57% 54% 46%
+        /
+        57% 43% 57% 43%;
+
+    box-shadow:
+
+        0 25px 60px
+        rgba(160,60,130,.25),
+
+        inset 0 0 25px
+        rgba(255,255,255,.9);
+
+    animation:
+        logoFloat
+        3s ease-in-out infinite;
+}
+
+
+@keyframes logoFloat{
+
+    0%,100%{
+
+        transform:
+            translateY(0)
+            rotate(-5deg);
+    }
+
+    50%{
+
+        transform:
+            translateY(-18px)
+            rotate(6deg);
+    }
+}
+
+
+/* =========================================================
+   INTRO TITLE
+========================================================= */
+
+.intro-small{
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    letter-spacing:8px;
+
+    margin-bottom:12px;
+
+    text-shadow:
+        0 4px 15px
+        rgba(120,40,100,.2);
+}
+
+
+.intro-content h1{
+
+    font-family:"Itim",cursive;
+
+    font-size:
+        clamp(70px,11vw,135px);
+
+    line-height:.78;
+
+    color:white;
+
+    text-shadow:
+
+        4px 5px 0
+        #e85f9f,
+
+        8px 12px 25px
+        rgba(130,40,110,.25);
+
+    animation:
+        titlePop
+        1.3s
+        cubic-bezier(.2,1.5,.4,1)
+        both;
+}
+
+
+.intro-content h1 span{
+
+    background:
+
         linear-gradient(
             90deg,
-            #ff4f9a,
-            #bb70e8,
-            #758df5,
-            #ff4f9a
+            #fff,
+            #ffe0f1,
+            #fff,
+            #ffe0f1,
+            #fff
         );
 
     background-size:300%;
 
     -webkit-background-clip:text;
+
     background-clip:text;
 
     color:transparent;
 
-    animation:titleGradient 4s linear infinite;
-
-    filter:drop-shadow(4px 6px 0 white);
+    animation:
+        textShine
+        3s linear infinite;
 }
 
-.intro p{
-    margin-top:10px;
-    color:#80536d;
+
+@keyframes titlePop{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            scale(.7)
+            rotate(-4deg);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            scale(1)
+            rotate(0);
+    }
+}
+
+
+@keyframes textShine{
+
+    to{
+        background-position:300%;
+    }
+}
+
+
+.intro-content p{
+
+    margin-top:25px;
+
+    color:white;
+
     font-size:18px;
+
+    font-weight:500;
+
+    text-shadow:
+        0 3px 12px
+        rgba(100,40,90,.2);
 }
 
-.loading{
-    width:250px;
-    height:10px;
 
-    margin:30px auto 0;
+/* =========================================================
+   🍰 ENTER BUTTON
+========================================================= */
+
+#enterBtn{
+
+    position:relative;
 
     overflow:hidden;
 
-    border-radius:20px;
+    margin-top:35px;
 
-    background:rgba(255,255,255,.7);
-    box-shadow:inset 0 2px 8px rgba(120,50,100,.1);
+    padding:
+        17px 36px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:white;
+
+    color:#d94e91;
+
+    font-family:"Prompt",sans-serif;
+
+    font-size:16px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    box-shadow:
+
+        0 15px 40px
+        rgba(140,50,120,.25);
+
+    transition:
+        transform .3s,
+        box-shadow .3s;
 }
 
-.loading span{
-    display:block;
-    width:0%;
-    height:100%;
 
-    border-radius:20px;
+#enterBtn:hover{
 
-    background:
-        linear-gradient(
-            90deg,
-            #ff6ca8,
-            #c875e9,
-            #7ea0ff
+    transform:
+        translateY(-7px)
+        scale(1.08);
+
+    box-shadow:
+
+        0 25px 60px
+        rgba(140,50,120,.35);
+}
+
+
+#enterBtn:active{
+
+    transform:
+        scale(.94);
+}
+
+
+/* =========================================================
+   🍬 INTRO FLOATING CANDIES
+========================================================= */
+
+.intro-candy{
+
+    position:absolute;
+
+    z-index:2;
+
+    font-size:60px;
+
+    user-select:none;
+
+    pointer-events:none;
+
+    filter:
+        drop-shadow(
+            0 15px 15px
+            rgba(120,50,100,.18)
         );
 
-    animation:loading 4s ease forwards;
+    animation:
+        introCandyFloat
+        5s ease-in-out infinite;
 }
 
-@keyframes loading{
-    to{
-        width:100%;
+
+.candy-1{
+    top:10%;
+    left:8%;
+}
+
+.candy-2{
+    top:15%;
+    right:10%;
+    animation-delay:1s;
+}
+
+.candy-3{
+    bottom:15%;
+    left:8%;
+    animation-delay:2s;
+}
+
+.candy-4{
+    bottom:12%;
+    right:9%;
+    animation-delay:1.5s;
+}
+
+.candy-5{
+    top:43%;
+    left:4%;
+    font-size:42px;
+    animation-delay:.5s;
+}
+
+.candy-6{
+    top:38%;
+    right:4%;
+    font-size:42px;
+    animation-delay:2.5s;
+}
+
+
+@keyframes introCandyFloat{
+
+    0%,100%{
+
+        transform:
+            translateY(0)
+            rotate(-12deg);
+    }
+
+    50%{
+
+        transform:
+            translateY(-35px)
+            rotate(15deg);
     }
 }
 
-@keyframes introContent{
+
+/* =========================================================
+   🌊 INTRO WAVE
+========================================================= */
+
+.intro-wave{
+
+    position:absolute;
+
+    left:-5%;
+
+    bottom:-100px;
+
+    width:110%;
+
+    height:200px;
+
+    background:
+        rgba(255,255,255,.3);
+
+    border-radius:
+        50% 50% 0 0;
+
+    transform:
+        rotate(-2deg);
+}
+
+
+/* =========================================================
+   🫧 BUBBLES
+========================================================= */
+
+.bubble{
+
+    position:fixed;
+
+    bottom:-80px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:0;
+
+    background:
+        rgba(255,255,255,.22);
+
+    border:
+        2px solid
+        rgba(255,255,255,.5);
+
+    box-shadow:
+        inset 5px 5px 15px
+        rgba(255,255,255,.4),
+
+        0 10px 25px
+        rgba(170,80,150,.12);
+
+    animation:
+        bubbleRise
+        linear infinite;
+}
+
+
+@keyframes bubbleRise{
+
     from{
+
+        transform:
+            translateY(0)
+            translateX(0)
+            rotate(0);
+
         opacity:0;
-        transform:scale(.7) translateY(40px);
     }
+
+    10%{
+        opacity:.8;
+    }
+
+    90%{
+        opacity:.8;
+    }
+
     to{
-        opacity:1;
-        transform:scale(1) translateY(0);
-    }
-}
 
-@keyframes introExit{
-    0%{
-        opacity:1;
-        visibility:visible;
-        transform:scale(1);
-    }
-    75%{
-        opacity:1;
-    }
-    100%{
+        transform:
+            translateY(-120vh)
+            translateX(80px)
+            rotate(360deg);
+
         opacity:0;
-        visibility:hidden;
-        transform:scale(1.15);
-        pointer-events:none;
     }
 }
 
-/* ========================================
-   🍬 FLOATING CANDIES
-======================================== */
+
+/* =========================================================
+   🍭 FLOATING CANDIES
+========================================================= */
 
 .candy{
+
     position:fixed;
-    z-index:0;
+
+    z-index:1;
+
     pointer-events:none;
 
     font-size:45px;
 
     filter:
-        drop-shadow(0 10px 10px rgba(150,60,130,.15));
+        drop-shadow(
+            0 10px 10px
+            rgba(150,60,130,.15)
+        );
 
-    animation:floatCandy 7s ease-in-out infinite;
-
-    user-select:none;
+    animation:
+        floatCandy
+        7s ease-in-out infinite;
 }
 
-.candy:nth-child(1){
+
+.candy:nth-of-type(1){
     top:8%;
     left:4%;
     font-size:55px;
 }
 
-.candy:nth-child(2){
+.candy:nth-of-type(2){
     top:23%;
     right:6%;
     animation-delay:1s;
 }
 
-.candy:nth-child(3){
+.candy:nth-of-type(3){
     top:52%;
     left:2%;
     animation-delay:2s;
 }
 
-.candy:nth-child(4){
+.candy:nth-of-type(4){
     top:72%;
     right:3%;
     animation-delay:3s;
 }
 
-.candy:nth-child(5){
+.candy:nth-of-type(5){
     top:86%;
     left:12%;
     animation-delay:4s;
 }
 
-.candy:nth-child(6){
+.candy:nth-of-type(6){
     top:44%;
     right:14%;
     animation-delay:2.5s;
 }
 
-.candy:nth-child(7){
+.candy:nth-of-type(7){
     top:13%;
     left:45%;
     animation-delay:1.5s;
 }
 
+
 @keyframes floatCandy{
+
     0%,100%{
-        transform:translateY(0) rotate(-10deg);
+
+        transform:
+            translateY(0)
+            rotate(-10deg);
     }
+
     50%{
-        transform:translateY(-35px) rotate(15deg);
+
+        transform:
+            translateY(-35px)
+            rotate(15deg);
     }
 }
+
+
+/* =========================================================
+   ✨ EXTRA DECORATION
+========================================================= */
 
 .sweet{
+
     position:fixed;
+
     pointer-events:none;
-    z-index:0;
+
+    z-index:1;
+
     opacity:.65;
 
-    animation:spinFloat 12s linear infinite;
+    animation:
+        spinFloat
+        12s linear infinite;
 }
+
 
 .sweet.one{
     top:35%;
@@ -359,36 +897,53 @@ body::after{
     animation-delay:1s;
 }
 
+
 @keyframes spinFloat{
+
     0%{
-        transform:translateY(0) rotate(0);
+        transform:
+            translateY(0)
+            rotate(0);
     }
+
     50%{
-        transform:translateY(-20px) rotate(180deg);
+        transform:
+            translateY(-20px)
+            rotate(180deg);
     }
+
     100%{
-        transform:translateY(0) rotate(360deg);
+        transform:
+            translateY(0)
+            rotate(360deg);
     }
 }
 
-/* ========================================
-   ✨ CUSTOM CURSOR
-======================================== */
+
+/* =========================================================
+   🖱️ CURSOR
+========================================================= */
 
 .cursor{
+
     position:fixed;
 
     width:22px;
+
     height:22px;
 
-    border:2px solid white;
+    border:
+        2px solid
+        rgba(255,255,255,.95);
+
     border-radius:50%;
 
     pointer-events:none;
 
-    z-index:10000;
+    z-index:100000;
 
-    transform:translate(-50%,-50%);
+    transform:
+        translate(-50%,-50%);
 
     transition:
         width .2s,
@@ -398,79 +953,116 @@ body::after{
     mix-blend-mode:difference;
 }
 
+
 .cursor-dot{
+
     position:fixed;
 
     width:6px;
+
     height:6px;
 
     background:white;
+
     border-radius:50%;
 
     pointer-events:none;
-    z-index:10001;
 
-    transform:translate(-50%,-50%);
+    z-index:100001;
+
+    transform:
+        translate(-50%,-50%);
 }
+
 
 body.cursor-hover .cursor{
+
     width:50px;
+
     height:50px;
-    background:rgba(255,255,255,.15);
+
+    background:
+        rgba(255,255,255,.15);
 }
 
-/* ========================================
+
+/* =========================================================
    HEADER
-======================================== */
+========================================================= */
 
 header{
+
     position:relative;
+
     z-index:2;
 
     text-align:center;
 
-    padding:85px 20px 40px;
+    padding:
+        85px 20px 40px;
 }
 
+
 .badge{
+
     display:inline-block;
 
-    padding:11px 27px;
+    padding:
+        11px 27px;
 
     border-radius:50px;
 
     color:#e65395;
+
     font-weight:700;
 
-    background:rgba(255,255,255,.65);
+    background:
+        rgba(255,255,255,.65);
 
-    border:2px solid rgba(255,255,255,.9);
+    border:
+        2px solid
+        rgba(255,255,255,.9);
 
     box-shadow:
-        0 10px 30px rgba(193,74,139,.15),
-        inset 0 0 20px rgba(255,255,255,.5);
 
-    backdrop-filter:blur(12px);
+        0 10px 30px
+        rgba(193,74,139,.15),
 
-    animation:badgeFloat 3s ease-in-out infinite;
+        inset 0 0 20px
+        rgba(255,255,255,.5);
+
+    backdrop-filter:
+        blur(12px);
+
+    animation:
+        badgeFloat
+        3s ease-in-out infinite;
 }
 
+
 @keyframes badgeFloat{
+
     50%{
-        transform:translateY(-6px);
+        transform:
+            translateY(-6px);
     }
 }
 
+
 header h1{
-    margin:20px 0 12px;
+
+    margin:
+        20px 0 12px;
 
     font-family:"Itim",cursive;
 
-    font-size:clamp(48px,8vw,88px);
+    font-size:
+        clamp(48px,8vw,88px);
 
     line-height:1.1;
 
     background:
+
         linear-gradient(
             90deg,
             #e94891,
@@ -482,41 +1074,61 @@ header h1{
     background-size:300%;
 
     -webkit-background-clip:text;
+
     background-clip:text;
 
     color:transparent;
 
-    animation:titleGradient 5s linear infinite;
+    animation:
+        titleGradient
+        5s linear infinite;
 
     filter:
-        drop-shadow(3px 5px 0 white)
-        drop-shadow(0 15px 20px rgba(190,70,140,.15));
+
+        drop-shadow(
+            3px 5px 0 white
+        )
+
+        drop-shadow(
+            0 15px 20px
+            rgba(190,70,140,.15)
+        );
 }
 
+
 @keyframes titleGradient{
+
     to{
         background-position:300%;
     }
 }
 
+
 header p{
+
     font-size:19px;
+
     color:#81566d;
 }
 
-/* ========================================
-   BANNER
-======================================== */
+
+/* =========================================================
+   🌈 BANNER
+========================================================= */
 
 .banner{
+
     position:relative;
+
     z-index:2;
 
     max-width:920px;
 
-    margin:15px auto 45px;
+    margin:
+        15px auto 45px;
 
-    padding:20px 35px;
+    padding:
+        20px 35px;
 
     text-align:center;
 
@@ -525,9 +1137,11 @@ header p{
     color:white;
 
     font-size:21px;
+
     font-weight:700;
 
     background:
+
         linear-gradient(
             100deg,
             #ff75ad,
@@ -538,62 +1152,85 @@ header p{
 
     background-size:300%;
 
-    border:4px solid rgba(255,255,255,.85);
+    border:
+        4px solid
+        rgba(255,255,255,.85);
 
     box-shadow:
-        0 20px 50px rgba(182,73,140,.22),
-        inset 0 0 20px rgba(255,255,255,.2);
 
-    animation:bannerFlow 6s linear infinite;
+        0 20px 50px
+        rgba(182,73,140,.22),
+
+        inset 0 0 20px
+        rgba(255,255,255,.2);
+
+    animation:
+        bannerFlow
+        6s linear infinite;
 }
 
+
 .banner::before{
+
     content:"";
 
     position:absolute;
+
     inset:4px;
 
     border-radius:50px;
 
-    border:1px solid rgba(255,255,255,.5);
+    border:
+        1px solid
+        rgba(255,255,255,.5);
 
     pointer-events:none;
 }
 
+
 @keyframes bannerFlow{
+
     to{
         background-position:300%;
     }
 }
 
-/* ========================================
-   GALLERY
-======================================== */
+
+/* =========================================================
+   🃏 GALLERY
+========================================================= */
 
 .gallery{
+
     position:relative;
+
     z-index:2;
 
     max-width:1250px;
 
     margin:auto;
+
     padding:20px;
 
     display:grid;
 
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:
+        repeat(3,1fr);
 
     gap:35px;
 }
 
-/* ========================================
+
+/* =========================================================
    CARD
-======================================== */
+========================================================= */
 
 .card{
+
     position:relative;
 
     background:
+
         linear-gradient(
             145deg,
             rgba(255,255,255,.94),
@@ -604,13 +1241,20 @@ header p{
 
     overflow:hidden;
 
-    border:4px solid rgba(255,255,255,.9);
+    border:
+        4px solid
+        rgba(255,255,255,.9);
 
     box-shadow:
-        0 20px 45px rgba(170,75,130,.18),
-        inset 0 0 30px rgba(255,255,255,.5);
 
-    backdrop-filter:blur(15px);
+        0 20px 45px
+        rgba(170,75,130,.18),
+
+        inset 0 0 30px
+        rgba(255,255,255,.5);
+
+    backdrop-filter:
+        blur(15px);
 
     transform-style:preserve-3d;
 
@@ -620,8 +1264,11 @@ header p{
 
     cursor:grab;
 
-    animation:cardAppear .8s both;
+    animation:
+        cardAppear
+        .8s both;
 }
+
 
 .card:nth-child(2){
     animation-delay:.15s;
@@ -631,19 +1278,31 @@ header p{
     animation-delay:.3s;
 }
 
+
 @keyframes cardAppear{
+
     from{
+
         opacity:0;
-        transform:translateY(40px) scale(.96);
+
+        transform:
+            translateY(40px)
+            scale(.96);
     }
 
     to{
+
         opacity:1;
-        transform:translateY(0) scale(1);
+
+        transform:
+            translateY(0)
+            scale(1);
     }
 }
 
+
 .card::before{
+
     content:"";
 
     position:absolute;
@@ -651,14 +1310,17 @@ header p{
     z-index:3;
 
     width:120px;
+
     height:120px;
 
     top:-70px;
+
     left:-70px;
 
     border-radius:50%;
 
     background:
+
         radial-gradient(
             circle,
             rgba(255,255,255,.9),
@@ -668,18 +1330,29 @@ header p{
     transition:.5s;
 }
 
+
 .card:hover::before{
+
     width:300px;
+
     height:300px;
 }
 
+
 .card:hover{
+
     box-shadow:
-        0 35px 70px rgba(174,70,137,.28),
-        0 0 35px rgba(255,130,194,.18);
+
+        0 35px 70px
+        rgba(174,70,137,.28),
+
+        0 0 35px
+        rgba(255,130,194,.18);
 }
 
+
 .card.dragging{
+
     cursor:grabbing;
 
     z-index:50;
@@ -687,59 +1360,106 @@ header p{
     transition:none;
 
     box-shadow:
-        0 45px 90px rgba(120,50,110,.35),
-        0 0 40px rgba(255,143,202,.4);
+
+        0 45px 90px
+        rgba(120,50,110,.35),
+
+        0 0 40px
+        rgba(255,143,202,.4);
 }
 
-/* ========================================
-   HEART
-======================================== */
+
+/* =========================================================
+   💗 HEART
+========================================================= */
 
 .heart{
+
     position:absolute;
 
     z-index:5;
 
     top:16px;
+
     right:16px;
 
     width:48px;
+
     height:48px;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
-    background:rgba(255,255,255,.82);
+    background:
+        rgba(255,255,255,.82);
 
     border-radius:50%;
 
     font-size:23px;
 
     box-shadow:
-        0 8px 20px rgba(100,40,80,.15);
+        0 8px 20px
+        rgba(100,40,80,.15);
 
-    backdrop-filter:blur(8px);
+    backdrop-filter:
+        blur(8px);
 
     cursor:pointer;
 
     transition:.3s;
 }
 
+
 .heart:hover{
+
     transform:
         scale(1.2)
         rotate(10deg);
 
     box-shadow:
-        0 0 25px rgba(255,90,170,.45);
+        0 0 25px
+        rgba(255,90,170,.45);
 }
 
-/* ========================================
-   IMAGE
-======================================== */
+
+.heart.liked{
+
+    background:#fff0f7;
+
+    animation:
+        heartPop
+        .5s
+        cubic-bezier(.2,1.5,.4,1);
+}
+
+
+@keyframes heartPop{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:
+            scale(1.5)
+            rotate(15deg);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+
+/* =========================================================
+   🖼️ IMAGE
+========================================================= */
 
 .image-box{
+
     height:350px;
 
     overflow:hidden;
@@ -749,7 +1469,9 @@ header p{
     background:#ffddec;
 }
 
+
 .image-box::after{
+
     content:"";
 
     position:absolute;
@@ -757,6 +1479,7 @@ header p{
     inset:0;
 
     background:
+
         linear-gradient(
             120deg,
             transparent 35%,
@@ -764,17 +1487,25 @@ header p{
             transparent 65%
         );
 
-    transform:translateX(-120%);
+    transform:
+        translateX(-120%);
 
     transition:1s;
 }
 
-.card:hover .image-box::after{
-    transform:translateX(120%);
+
+.card:hover
+.image-box::after{
+
+    transform:
+        translateX(120%);
 }
 
+
 .card img{
+
     width:100%;
+
     height:100%;
 
     object-fit:cover;
@@ -782,35 +1513,48 @@ header p{
     display:block;
 
     transition:
-        transform .8s cubic-bezier(.2,.8,.2,1),
+        transform .8s
+        cubic-bezier(.2,.8,.2,1),
         filter .5s;
 }
 
+
 .card:hover img{
-    transform:scale(1.12);
-    filter:saturate(1.12);
+
+    transform:
+        scale(1.12);
+
+    filter:
+        saturate(1.12);
 }
 
-/* ========================================
+
+/* =========================================================
    CONTENT
-======================================== */
+========================================================= */
 
 .content{
-    padding:28px 27px 30px;
+
+    padding:
+        28px 27px 30px;
 
     text-align:center;
 }
 
+
 .number{
+
     display:inline-block;
 
-    padding:8px 22px;
+    padding:
+        8px 22px;
 
     margin-bottom:15px;
 
     border-radius:50px;
 
     background:
+
         linear-gradient(
             90deg,
             #ff75ad,
@@ -822,10 +1566,13 @@ header p{
     font-weight:700;
 
     box-shadow:
-        0 8px 20px rgba(209,94,155,.2);
+        0 8px 20px
+        rgba(209,94,155,.2);
 }
 
+
 .content h2{
+
     font-family:"Itim",cursive;
 
     font-size:30px;
@@ -835,7 +1582,9 @@ header p{
     margin-bottom:5px;
 }
 
+
 .content h3{
+
     font-size:15px;
 
     color:#b96aa1;
@@ -843,7 +1592,9 @@ header p{
     margin-bottom:15px;
 }
 
+
 .content p{
+
     font-size:14px;
 
     line-height:1.9;
@@ -853,11 +1604,13 @@ header p{
     text-align:left;
 }
 
-/* ========================================
-   BUTTON
-======================================== */
+
+/* =========================================================
+   🍭 BUTTON
+========================================================= */
 
 .view-button{
+
     position:relative;
 
     overflow:hidden;
@@ -866,11 +1619,13 @@ header p{
 
     margin-top:22px;
 
-    padding:12px 27px;
+    padding:
+        12px 27px;
 
     border-radius:40px;
 
     background:
+
         linear-gradient(
             90deg,
             #ff67a6,
@@ -886,61 +1641,86 @@ header p{
     cursor:pointer;
 
     box-shadow:
-        0 10px 25px rgba(210,76,145,.25);
+        0 10px 25px
+        rgba(210,76,145,.25);
 
     transition:.3s;
 }
 
+
 .view-button:hover{
+
     transform:
         translateY(-4px)
         scale(1.05);
 
     box-shadow:
-        0 16px 35px rgba(210,76,145,.35);
+        0 16px 35px
+        rgba(210,76,145,.35);
 }
+
 
 .view-button:active{
-    transform:scale(.94);
+
+    transform:
+        scale(.94);
 }
 
+
+/* =========================================================
+   RIPPLE
+========================================================= */
+
 .ripple{
+
     position:absolute;
 
     border-radius:50%;
 
     transform:scale(0);
 
-    animation:ripple .6s linear;
+    animation:
+        ripple
+        .6s linear;
 
-    background:rgba(255,255,255,.65);
+    background:
+        rgba(255,255,255,.65);
 
     pointer-events:none;
 }
 
+
 @keyframes ripple{
+
     to{
-        transform:scale(5);
+
+        transform:
+            scale(5);
+
         opacity:0;
     }
 }
 
-/* ========================================
-   INFO
-======================================== */
+
+/* =========================================================
+   📚 INFO
+========================================================= */
 
 .info{
+
     position:relative;
 
     z-index:2;
 
     max-width:1100px;
 
-    margin:65px auto;
+    margin:
+        65px auto;
 
     padding:42px;
 
     background:
+
         linear-gradient(
             145deg,
             rgba(255,255,255,.82),
@@ -949,26 +1729,36 @@ header p{
 
     border-radius:35px;
 
-    border:4px solid rgba(255,255,255,.9);
+    border:
+        4px solid
+        rgba(255,255,255,.9);
 
     box-shadow:
-        0 25px 55px rgba(170,75,130,.16);
+        0 25px 55px
+        rgba(170,75,130,.16);
 
-    backdrop-filter:blur(15px);
+    backdrop-filter:
+        blur(15px);
 
     text-align:center;
 
     transition:.4s;
 }
 
+
 .info:hover{
-    transform:translateY(-6px);
+
+    transform:
+        translateY(-6px);
 
     box-shadow:
-        0 35px 70px rgba(170,75,130,.22);
+        0 35px 70px
+        rgba(170,75,130,.22);
 }
 
+
 .info h2{
+
     font-family:"Itim",cursive;
 
     color:#e84f91;
@@ -978,7 +1768,9 @@ header p{
     margin-bottom:18px;
 }
 
+
 .info p{
+
     line-height:2;
 
     color:#705267;
@@ -986,18 +1778,24 @@ header p{
     font-size:16px;
 }
 
+
 .tags{
+
     margin-top:25px;
 }
 
+
 .tag{
+
     display:inline-block;
 
-    padding:9px 19px;
+    padding:
+        9px 19px;
 
     margin:5px;
 
     background:
+
         linear-gradient(
             135deg,
             #ffe0ef,
@@ -1010,37 +1808,104 @@ header p{
 
     font-weight:600;
 
-    border:1px solid rgba(255,255,255,.9);
+    border:
+        1px solid
+        rgba(255,255,255,.9);
 
     transition:.3s;
+
+    cursor:pointer;
 }
 
+
 .tag:hover{
+
     transform:
         translateY(-5px)
         rotate(-2deg)
         scale(1.05);
 
     box-shadow:
-        0 10px 20px rgba(200,80,150,.18);
+        0 10px 20px
+        rgba(200,80,150,.18);
 }
 
-/* ========================================
+
+/* =========================================================
+   🍬 SECRET CANDY
+========================================================= */
+
+.secret-candy{
+
+    position:relative;
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-top:25px;
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:50%;
+
+    background:white;
+
+    font-size:32px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 10px 30px
+        rgba(200,70,150,.2);
+
+    transition:.3s;
+}
+
+
+.secret-candy:hover{
+
+    transform:
+        rotate(15deg)
+        scale(1.15);
+}
+
+
+.secret-text{
+
+    margin-top:12px;
+
+    color:#c86b9d;
+
+    font-size:13px;
+
+    opacity:.8;
+}
+
+
+/* =========================================================
    FOOTER
-======================================== */
+========================================================= */
 
 footer{
+
     position:relative;
 
     z-index:2;
 
     margin-top:80px;
 
-    padding:55px 20px;
+    padding:
+        55px 20px;
 
     text-align:center;
 
     background:
+
         linear-gradient(
             135deg,
             #eb6da6,
@@ -1050,13 +1915,17 @@ footer{
 
     color:white;
 
-    border-radius:60px 60px 0 0;
+    border-radius:
+        60px 60px 0 0;
 
     box-shadow:
-        0 -15px 40px rgba(170,80,150,.15);
+        0 -15px 40px
+        rgba(170,80,150,.15);
 }
 
+
 footer h2{
+
     font-family:"Itim",cursive;
 
     font-size:35px;
@@ -1064,16 +1933,21 @@ footer h2{
     margin-bottom:12px;
 }
 
+
 footer p{
+
     margin:7px;
+
     opacity:.95;
 }
 
-/* ========================================
-   MODAL
-======================================== */
+
+/* =========================================================
+   🔍 MODAL
+========================================================= */
 
 .modal{
+
     display:none;
 
     position:fixed;
@@ -1083,6 +1957,7 @@ footer p{
     inset:0;
 
     background:
+
         radial-gradient(
             circle at center,
             rgba(150,70,150,.35),
@@ -1090,64 +1965,99 @@ footer p{
         );
 
     justify-content:center;
+
     align-items:center;
 
     padding:20px;
 
-    backdrop-filter:blur(12px);
+    backdrop-filter:
+        blur(12px);
 
     opacity:0;
 }
 
+
 .modal.active{
+
     display:flex;
 
-    animation:modalIn .35s forwards;
+    animation:
+        modalIn
+        .35s
+        forwards;
 }
 
+
 @keyframes modalIn{
+
     to{
         opacity:1;
     }
 }
 
+
 .modal-content{
+
     max-width:900px;
+
     max-height:90vh;
 
     position:relative;
 
-    transform:scale(.75) rotate(-3deg);
+    transform:
+        scale(.75)
+        rotate(-3deg);
 
-    animation:modalPop .45s cubic-bezier(.2,1.4,.4,1) forwards;
+    animation:
+        modalPop
+        .45s
+        cubic-bezier(.2,1.4,.4,1)
+        forwards;
 }
 
+
 @keyframes modalPop{
+
     to{
-        transform:scale(1) rotate(0);
+
+        transform:
+            scale(1)
+            rotate(0);
     }
 }
 
+
 .modal-content img{
+
     max-width:100%;
+
     max-height:85vh;
 
     border-radius:25px;
 
-    border:6px solid white;
+    border:
+        6px solid white;
 
     box-shadow:
-        0 30px 100px rgba(0,0,0,.55),
-        0 0 40px rgba(255,150,220,.35);
+
+        0 30px 100px
+        rgba(0,0,0,.55),
+
+        0 0 40px
+        rgba(255,150,220,.35);
 }
 
+
 .close{
+
     position:absolute;
 
     top:-20px;
+
     right:-20px;
 
     width:50px;
+
     height:50px;
 
     border:none;
@@ -1165,22 +2075,27 @@ footer p{
     cursor:pointer;
 
     box-shadow:
-        0 10px 30px rgba(0,0,0,.2);
+        0 10px 30px
+        rgba(0,0,0,.2);
 
     transition:.3s;
 }
 
+
 .close:hover{
+
     transform:
         rotate(90deg)
         scale(1.1);
 }
 
-/* ========================================
-   PARTICLES
-======================================== */
+
+/* =========================================================
+   ✨ CLICK PARTICLES
+========================================================= */
 
 .click-particle{
+
     position:fixed;
 
     z-index:10002;
@@ -1189,11 +2104,17 @@ footer p{
 
     font-size:20px;
 
-    animation:particleFly .8s ease-out forwards;
+    animation:
+        particleFly
+        .9s ease-out
+        forwards;
 }
 
+
 @keyframes particleFly{
+
     from{
+
         opacity:1;
 
         transform:
@@ -1202,294 +2123,338 @@ footer p{
     }
 
     to{
+
         opacity:0;
 
         transform:
-            translate(var(--x),var(--y))
+            translate(
+                var(--x),
+                var(--y)
+            )
             scale(.2)
             rotate(180deg);
     }
 }
 
-/* ========================================
-   SCROLL REVEAL
-======================================== */
+
+/* =========================================================
+   👀 SCROLL REVEAL
+========================================================= */
 
 .reveal{
+
     opacity:0;
 
-    transform:translateY(35px);
+    transform:
+        translateY(35px);
 
     transition:
         opacity .8s ease,
         transform .8s ease;
 }
 
+
 .reveal.show{
+
     opacity:1;
 
-    transform:translateY(0);
-}
-
-/* ========================================
-   SECRET CANDY
-======================================== */
-
-.secret-candy{
-    position:fixed;
-
-    right:20px;
-    bottom:20px;
-
-    z-index:8000;
-
-    width:55px;
-    height:55px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.8);
-
-    border:3px solid white;
-
-    box-shadow:
-        0 10px 30px rgba(150,60,130,.2);
-
-    font-size:25px;
-
-    cursor:pointer;
-
-    transition:.3s;
-}
-
-.secret-candy:hover{
     transform:
-        scale(1.15)
-        rotate(15deg);
-
-    box-shadow:
-        0 0 30px rgba(255,100,180,.5);
+        translateY(0);
 }
 
-.secret-message{
+
+/* =========================================================
+   🍬 TOAST
+========================================================= */
+
+.toast{
+
     position:fixed;
 
-    inset:0;
+    left:50%;
 
-    z-index:15000;
+    bottom:30px;
 
-    display:none;
+    z-index:10010;
 
-    justify-content:center;
-    align-items:center;
+    transform:
+        translate(-50%,30px)
+        scale(.9);
 
-    padding:20px;
+    padding:
+        14px 25px;
 
-    background:rgba(60,20,60,.65);
-
-    backdrop-filter:blur(12px);
-}
-
-.secret-message.active{
-    display:flex;
-}
-
-.secret-box{
-    max-width:500px;
-
-    padding:45px;
-
-    text-align:center;
-
-    border-radius:35px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #fff,
-            #ffe5f2
-        );
-
-    border:5px solid white;
-
-    box-shadow:
-        0 30px 80px rgba(80,30,70,.3);
-
-    animation:secretPop .5s cubic-bezier(.2,1.5,.4,1);
-}
-
-@keyframes secretPop{
-    from{
-        opacity:0;
-        transform:scale(.5) rotate(-8deg);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1) rotate(0);
-    }
-}
-
-.secret-box h2{
-    font-family:"Itim",cursive;
-
-    color:#e84f91;
-
-    font-size:38px;
-
-    margin-bottom:15px;
-}
-
-.secret-box p{
-    line-height:1.8;
-
-    color:#73566a;
-}
-
-.secret-close{
-    margin-top:20px;
-
-    border:none;
-
-    padding:11px 25px;
-
-    border-radius:30px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff6aa7,
-            #bd78e8
-        );
+    border-radius:50px;
 
     color:white;
 
-    font-weight:bold;
+    font-weight:700;
 
-    cursor:pointer;
+    background:
+
+        linear-gradient(
+            90deg,
+            #ff67a6,
+            #bd72e3
+        );
+
+    box-shadow:
+        0 15px 35px
+        rgba(170,60,140,.3);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.4s;
 }
 
-/* ========================================
-   MOBILE
-======================================== */
+
+.toast.show{
+
+    opacity:1;
+
+    transform:
+        translate(-50%,0)
+        scale(1);
+}
+
+
+/* =========================================================
+   📱 MOBILE
+========================================================= */
 
 @media(max-width:950px){
 
     .gallery{
-        grid-template-columns:repeat(2,1fr);
-    }
 
+        grid-template-columns:
+            repeat(2,1fr);
+    }
 }
+
 
 @media(max-width:650px){
 
     .cursor,
     .cursor-dot{
+
         display:none;
     }
 
     header{
+
         padding-top:55px;
     }
 
     header h1{
+
         font-size:48px;
     }
 
     header p{
+
         font-size:16px;
     }
 
     .banner{
-        margin:10px 20px 35px;
+
+        margin:
+            10px 20px 35px;
 
         font-size:17px;
     }
 
     .gallery{
+
         grid-template-columns:1fr;
 
         padding:15px;
     }
 
     .image-box{
+
         height:330px;
     }
 
     .info{
-        margin:45px 20px;
 
-        padding:28px 22px;
+        margin:
+            45px 20px;
+
+        padding:
+            28px 22px;
     }
 
     .info h2{
+
         font-size:29px;
     }
 
     .candy{
+
         font-size:30px;
     }
 
-    .intro-candy{
+    .intro-logo{
+
+        width:95px;
+
+        height:95px;
+
+        font-size:50px;
+    }
+
+    .intro-small{
+
+        font-size:10px;
+
+        letter-spacing:5px;
+    }
+
+    .intro-content h1{
+
         font-size:65px;
     }
 
-    .intro h1{
-        font-size:58px;
+    .intro-content p{
+
+        font-size:15px;
     }
+
+    #enterBtn{
+
+        font-size:14px;
+
+        padding:
+            14px 24px;
+    }
+
+    .intro-candy{
+
+        font-size:35px;
+    }
+
 }
+
+
+/* =========================================================
+   ♿ REDUCED MOTION
+========================================================= */
 
 @media(prefers-reduced-motion:reduce){
 
-    *,
-    *::before,
-    *::after{
+    *{
+
         animation-duration:.01ms !important;
+
         animation-iteration-count:1 !important;
+
         scroll-behavior:auto !important;
+
+        transition-duration:.01ms !important;
     }
 }
+
 </style>
+
 </head>
+
 
 <body>
 
-<!-- ========================================
-     🍭 OPENING SCREEN
-======================================== -->
 
-<div class="intro">
+<!-- =====================================================
+     🍭 INTRO SCREEN
+===================================================== -->
+
+<div id="intro">
+
+
+    <div class="intro-candy candy-1">
+        🍭
+    </div>
+
+    <div class="intro-candy candy-2">
+        🍬
+    </div>
+
+    <div class="intro-candy candy-3">
+        🍩
+    </div>
+
+    <div class="intro-candy candy-4">
+        🧁
+    </div>
+
+    <div class="intro-candy candy-5">
+        🍓
+    </div>
+
+    <div class="intro-candy candy-6">
+        🍪
+    </div>
+
 
     <div class="intro-content">
 
-        <div class="intro-candy">
+
+        <div class="intro-sparkles">
+            ✦ ✧ ✦
+        </div>
+
+
+        <div class="intro-logo">
             🍭
         </div>
 
-        <h1>
-            Candy Land
-        </h1>
 
-        <p>
-            ✨ Welcome to my sweet little gallery ✨
-        </p>
-
-        <div class="loading">
-            <span></span>
+        <div class="intro-small">
+            WELCOME TO
         </div>
 
+
+        <h1>
+
+            SWEET<br>
+
+            <span>CANDY</span><br>
+
+            WORLD
+
+        </h1>
+
+
+        <p>
+            ✨ A little world full of sweetness ✨
+        </p>
+
+
+        <button id="enterBtn">
+
+            🍰 ENTER THE SWEET WORLD 🍰
+
+        </button>
+
+
     </div>
+
+
+    <div class="intro-wave"></div>
 
 </div>
 
 
-<!-- ========================================
-     🍬 FLOATING DECORATIONS
-======================================== -->
+<!-- =====================================================
+     🍭 MAIN WEBSITE
+===================================================== -->
+
+<div id="mainWebsite">
+
+
+<!-- =====================================================
+     FLOATING CANDIES
+===================================================== -->
 
 <div class="candy">🍭</div>
 <div class="candy">🧁</div>
@@ -1499,44 +2464,67 @@ footer p{
 <div class="candy">🍪</div>
 <div class="candy">🍓</div>
 
-<div class="sweet one">✨</div>
-<div class="sweet two">💎</div>
-<div class="sweet three">🌸</div>
-<div class="sweet four">✨</div>
+
+<div class="sweet one">
+    ✨
+</div>
+
+<div class="sweet two">
+    💎
+</div>
+
+<div class="sweet three">
+    🌸
+</div>
+
+<div class="sweet four">
+    ✨
+</div>
 
 
-<!-- ========================================
+<!-- =====================================================
      CURSOR
-======================================== -->
+===================================================== -->
 
 <div class="cursor"></div>
+
 <div class="cursor-dot"></div>
 
 
-<!-- ========================================
+<!-- =====================================================
      HEADER
-======================================== -->
+===================================================== -->
 
 <header class="reveal">
 
+
     <div class="badge">
+
         🍰 Welcome to Candy Land 🍰
+
     </div>
 
+
     <h1>
+
         🍭 แกลเลอรีรูปภาพของฉัน 🍬
+
     </h1>
 
+
     <p>
+
         ✨ โลกแห่งความหวาน กับภาพที่ฉันชื่นชอบ ✨
+
     </p>
+
 
 </header>
 
 
-<!-- ========================================
+<!-- =====================================================
      BANNER
-======================================== -->
+===================================================== -->
 
 <div class="banner reveal">
 
@@ -1545,42 +2533,60 @@ footer p{
 </div>
 
 
-<!-- ========================================
+<!-- =====================================================
      GALLERY
-======================================== -->
+===================================================== -->
 
 <section class="gallery">
 
 
-<!-- CARD 1 -->
+<!-- =====================================================
+     CARD 1
+===================================================== -->
 
 <div class="card reveal">
 
+
     <div class="heart">
+
         💗
+
     </div>
+
 
     <div class="image-box">
 
         <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk__5Y1FBo7kmr_8hbrKw7QVjaktgzf4UgbZBEqyC1LA&s=10"
-            alt="Omniscient Reader's Viewpoint">
+            alt="Omniscient Reader's Viewpoint"
+        >
 
     </div>
 
+
     <div class="content">
 
+
         <div class="number">
+
             🍰 ภาพที่ 1
+
         </div>
 
+
         <h2>
+
             Omniscient Reader's Viewpoint
+
         </h2>
 
+
         <h3>
+
             📖 มุมมองนักอ่านพระเจ้า
+
         </h3>
+
 
         <p>
 
@@ -1603,47 +2609,69 @@ footer p{
 
         </p>
 
+
         <button
             class="view-button"
             onclick="openImage(this)"
         >
+
             🍭 ดูรูปใหญ่
+
         </button>
+
 
     </div>
 
 </div>
 
 
-<!-- CARD 2 -->
+<!-- =====================================================
+     CARD 2
+===================================================== -->
 
 <div class="card reveal">
 
+
     <div class="heart">
+
         🍓
+
     </div>
+
 
     <div class="image-box">
 
         <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB2LDrC0tpvYwP2F12CIMpZA9yhdQUQXBuYRsR-Y8glw&s=10"
-            alt="KimCompany">
+            alt="KimCompany"
+        >
 
     </div>
 
+
     <div class="content">
 
+
         <div class="number">
+
             🧁 ภาพที่ 2
+
         </div>
 
+
         <h2>
+
             KimCompany
+
         </h2>
 
+
         <h3>
+
             🍓 ภาพแฟนอาร์ต
+
         </h3>
+
 
         <p>
 
@@ -1661,47 +2689,69 @@ footer p{
 
         </p>
 
+
         <button
             class="view-button"
             onclick="openImage(this)"
         >
+
             🍩 ดูรูปใหญ่
+
         </button>
+
 
     </div>
 
 </div>
 
 
-<!-- CARD 3 -->
+<!-- =====================================================
+     CARD 3
+===================================================== -->
 
 <div class="card reveal">
 
+
     <div class="heart">
+
         💜
+
     </div>
+
 
     <div class="image-box">
 
         <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSch4rcDVeznx3HSs-SfvYa4FyrTtuZsjEWS-q5qDw0oIfUNezxNkCnnvXi&s=10"
-            alt="Kim Dokja">
+            alt="Oldest Dream"
+        >
 
     </div>
 
+
     <div class="content">
 
+
         <div class="number">
+
             🍪 ภาพที่ 3
+
         </div>
 
+
         <h2>
+
             Oldest Dream
+
         </h2>
 
+
         <h3>
+
             🌌 Omniscient Reader's Viewpoint
+
         </h3>
+
 
         <p>
 
@@ -1718,29 +2768,38 @@ footer p{
 
         </p>
 
+
         <button
             class="view-button"
             onclick="openImage(this)"
         >
+
             🍬 ดูรูปใหญ่
+
         </button>
+
 
     </div>
 
 </div>
 
+
 </section>
 
 
-<!-- ========================================
+<!-- =====================================================
      INFO
-======================================== -->
+===================================================== -->
 
 <section class="info reveal">
 
+
     <h2>
+
         📚 เกี่ยวกับ Omniscient Reader's Viewpoint
+
     </h2>
+
 
     <p>
 
@@ -1768,6 +2827,7 @@ footer p{
 
     </p>
 
+
     <div class="tags">
 
         <span class="tag">
@@ -1792,39 +2852,76 @@ footer p{
 
     </div>
 
+
+    <!-- SECRET BUTTON -->
+
+    <div
+        class="secret-candy"
+        id="secretCandy"
+        title="ลองกดดูสิ 👀"
+    >
+
+        🍬
+
+    </div>
+
+
+    <div class="secret-text">
+
+        🤫 มีอะไรบางอย่างซ่อนอยู่... ลองกดลูกกวาดดูสิ
+
+    </div>
+
+
 </section>
 
 
-<!-- ========================================
+<!-- =====================================================
      FOOTER
-======================================== -->
+===================================================== -->
 
 <footer>
 
+
     <h2>
+
         🍰 Sweet Memories 🍰
+
     </h2>
 
+
     <p>
+
         บางภาพอาจเป็นเพียงรูปภาพ
         แต่สำหรับฉัน
         มันคือความทรงจำที่มีความหมาย 💗
+
     </p>
 
+
     <p>
+
         © 2026 แกลเลอรีรูปภาพของฉัน
+
     </p>
 
+
     <p>
+
         🌸 สร้างสรรค์โดยนักเรียน 🌸
+
     </p>
+
 
 </footer>
 
 
-<!-- ========================================
-     IMAGE MODAL
-======================================== -->
+</div>
+
+
+<!-- =====================================================
+     MODAL
+===================================================== -->
 
 <div
     class="modal"
@@ -1832,17 +2929,22 @@ footer p{
     onclick="closeImage()"
 >
 
+
     <div
         class="modal-content"
         onclick="event.stopPropagation()"
     >
 
+
         <button
             class="close"
             onclick="closeImage()"
         >
+
             ×
+
         </button>
+
 
         <img
             id="largeImage"
@@ -1850,186 +2952,388 @@ footer p{
             alt="รูปภาพขนาดใหญ่"
         >
 
+
     </div>
+
 
 </div>
 
 
-<!-- ========================================
-     SECRET CANDY
-======================================== -->
-
-<button
-    class="secret-candy"
-    id="secretCandy"
-    title="ลองกดดูสิ 🍭"
->
-    🍭
-</button>
-
-
-<!-- SECRET MESSAGE -->
+<!-- =====================================================
+     TOAST
+===================================================== -->
 
 <div
-    class="secret-message"
-    id="secretMessage"
+    class="toast"
+    id="toast"
 >
 
-    <div class="secret-box">
-
-        <h2>
-            🍬 You Found It! 🍬
-        </h2>
-
-        <p>
-            ยินดีด้วย! 🎉
-            <br><br>
-
-            หนูค้นพบความลับของ
-            <b>Candy Land</b> แล้ว!
-            <br><br>
-
-            ✨ บางครั้งสิ่งเล็ก ๆ
-            ก็ซ่อนความพิเศษเอาไว้ ✨
-        </p>
-
-        <button
-            class="secret-close"
-            onclick="closeSecret()"
-        >
-            🍭 กลับไปดูขนมต่อ
-        </button>
-
-    </div>
+    🍭 Sweet!
 
 </div>
 
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
 
-/* ========================================
-   🍭 IMAGE MODAL
-======================================== */
+
+/* =====================================================
+   🍭 INTRO
+===================================================== */
+
+const intro =
+    document.getElementById("intro");
+
+const enterBtn =
+    document.getElementById("enterBtn");
+
+
+enterBtn.addEventListener(
+    "click",
+    function(){
+
+        createIntroParticles();
+
+        playSweetSound();
+
+        intro.classList.add("hide");
+
+        setTimeout(
+            function(){
+
+                intro.style.display="none";
+
+            },
+            1000
+        );
+
+    }
+);
+
+
+/* =====================================================
+   ✨ INTRO PARTICLES
+===================================================== */
+
+function createIntroParticles(){
+
+    const symbols = [
+
+        "✨",
+        "💗",
+        "🍭",
+        "🍬",
+        "🧁",
+        "🍓",
+        "⭐",
+        "💖",
+        "🍰",
+        "🍩"
+
+    ];
+
+
+    for(
+        let i=0;
+        i<45;
+        i++
+    ){
+
+        const particle =
+            document.createElement("div");
+
+
+        particle.className =
+            "click-particle";
+
+
+        particle.textContent =
+            symbols[
+                Math.floor(
+                    Math.random()
+                    * symbols.length
+                )
+            ];
+
+
+        particle.style.left =
+            "50vw";
+
+
+        particle.style.top =
+            "50vh";
+
+
+        particle.style.setProperty(
+            "--x",
+            (
+                Math.random()
+                * 1100
+                - 550
+            ) + "px"
+        );
+
+
+        particle.style.setProperty(
+            "--y",
+            (
+                Math.random()
+                * 800
+                - 400
+            ) + "px"
+        );
+
+
+        document.body.appendChild(
+            particle
+        );
+
+
+        setTimeout(
+            ()=>{
+                particle.remove();
+            },
+            1000
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   🫧 CREATE BUBBLES
+===================================================== */
+
+function createBubble(){
+
+    const bubble =
+        document.createElement("div");
+
+
+    bubble.className="bubble";
+
+
+    const size =
+        Math.random()*60+20;
+
+
+    bubble.style.width =
+        size+"px";
+
+
+    bubble.style.height =
+        size+"px";
+
+
+    bubble.style.left =
+        Math.random()*100+"vw";
+
+
+    bubble.style.animationDuration =
+        (Math.random()*8+7)+"s";
+
+
+    document.body.appendChild(
+        bubble
+    );
+
+
+    setTimeout(
+        ()=>{
+            bubble.remove();
+        },
+        16000
+    );
+
+}
+
+
+setInterval(
+    createBubble,
+    1200
+);
+
+
+/* =====================================================
+   🔍 IMAGE MODAL
+===================================================== */
 
 function openImage(button){
 
-    const card = button.closest(".card");
+    const card =
+        button.closest(".card");
 
-    const image = card.querySelector("img");
+
+    const image =
+        card.querySelector("img");
+
 
     const modal =
-        document.getElementById("imageModal");
+        document.getElementById(
+            "imageModal"
+        );
+
 
     const largeImage =
-        document.getElementById("largeImage");
+        document.getElementById(
+            "largeImage"
+        );
 
-    largeImage.src = image.src;
 
-    modal.classList.add("active");
+    largeImage.src =
+        image.src;
+
+
+    modal.classList.add(
+        "active"
+    );
+
+
+    playSweetSound();
+
 }
+
 
 function closeImage(){
 
     const modal =
-        document.getElementById("imageModal");
+        document.getElementById(
+            "imageModal"
+        );
 
-    modal.classList.remove("active");
+
+    modal.classList.remove(
+        "active"
+    );
+
 }
+
 
 document.addEventListener(
     "keydown",
     function(event){
 
-        if(event.key === "Escape"){
+        if(
+            event.key === "Escape"
+        ){
+
             closeImage();
+
         }
 
     }
 );
 
 
-/* ========================================
-   ✨ CUSTOM CURSOR
-======================================== */
+/* =====================================================
+   🖱️ CUSTOM CURSOR
+===================================================== */
 
 const cursor =
-    document.querySelector(".cursor");
+    document.querySelector(
+        ".cursor"
+    );
+
 
 const cursorDot =
-    document.querySelector(".cursor-dot");
+    document.querySelector(
+        ".cursor-dot"
+    );
+
 
 document.addEventListener(
     "mousemove",
     function(e){
 
         cursor.style.left =
-            e.clientX + "px";
+            e.clientX+"px";
+
 
         cursor.style.top =
-            e.clientY + "px";
+            e.clientY+"px";
+
 
         cursorDot.style.left =
-            e.clientX + "px";
+            e.clientX+"px";
+
 
         cursorDot.style.top =
-            e.clientY + "px";
+            e.clientY+"px";
+
 
         document.documentElement
             .style
             .setProperty(
                 "--mouse-x",
-                e.clientX + "px"
+                e.clientX+"px"
             );
+
 
         document.documentElement
             .style
             .setProperty(
                 "--mouse-y",
-                e.clientY + "px"
+                e.clientY+"px"
             );
 
     }
 );
 
 
-/* ========================================
-   🪄 CURSOR HOVER
-======================================== */
+/* =====================================================
+   🖱️ CURSOR HOVER
+===================================================== */
 
 document.querySelectorAll(
-    "button,.heart,.tag,.card"
-).forEach(element=>{
+    "button,.heart,.tag,.card,.secret-candy"
+).forEach(
+    element=>{
 
-    element.addEventListener(
-        "mouseenter",
-        ()=>{
-            document.body.classList.add(
-                "cursor-hover"
-            );
-        }
-    );
+        element.addEventListener(
+            "mouseenter",
+            ()=>{
 
-    element.addEventListener(
-        "mouseleave",
-        ()=>{
-            document.body.classList.remove(
-                "cursor-hover"
-            );
-        }
-    );
+                document.body
+                    .classList
+                    .add(
+                        "cursor-hover"
+                    );
 
-});
+            }
+        );
 
 
-/* ========================================
-   🍬 CLICK PARTICLES
-======================================== */
+        element.addEventListener(
+            "mouseleave",
+            ()=>{
+
+                document.body
+                    .classList
+                    .remove(
+                        "cursor-hover"
+                    );
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   ✨ CLICK PARTICLES
+===================================================== */
 
 document.addEventListener(
     "click",
     function(e){
 
-        const symbols = [
+        const symbols=[
+
             "✨",
             "💗",
             "💖",
@@ -2038,15 +3342,25 @@ document.addEventListener(
             "⭐",
             "🍬",
             "🍓"
+
         ];
 
-        for(let i=0;i<8;i++){
+
+        for(
+            let i=0;
+            i<8;
+            i++
+        ){
 
             const particle =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
+
 
             particle.className =
                 "click-particle";
+
 
             particle.textContent =
                 symbols[
@@ -2056,302 +3370,271 @@ document.addEventListener(
                     )
                 ];
 
+
             particle.style.left =
-                e.clientX + "px";
+                e.clientX+"px";
+
 
             particle.style.top =
-                e.clientY + "px";
+                e.clientY+"px";
+
 
             particle.style.setProperty(
                 "--x",
-                (Math.random()*160-80)
-                + "px"
+                (
+                    Math.random()
+                    *160-80
+                )+"px"
             );
+
 
             particle.style.setProperty(
                 "--y",
-                (Math.random()*160-100)
-                + "px"
+                (
+                    Math.random()
+                    *160-100
+                )+"px"
             );
+
 
             document.body.appendChild(
                 particle
             );
 
+
             setTimeout(
                 ()=>{
                     particle.remove();
                 },
-                800
+                900
             );
+
         }
 
     }
 );
 
 
-/* ========================================
-   💥 BUTTON RIPPLE
-======================================== */
+/* =====================================================
+   🌊 BUTTON RIPPLE
+===================================================== */
 
 document.querySelectorAll(
-    ".view-button"
-).forEach(button=>{
+    ".view-button,#enterBtn"
+).forEach(
+    button=>{
 
-    button.addEventListener(
-        "click",
-        function(e){
+        button.addEventListener(
+            "click",
+            function(e){
 
-            const ripple =
-                document.createElement(
-                    "span"
+                const ripple =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                ripple.className =
+                    "ripple";
+
+
+                const rect =
+                    button.getBoundingClientRect();
+
+
+                const size =
+                    Math.max(
+                        rect.width,
+                        rect.height
+                    );
+
+
+                ripple.style.width =
+                    size+"px";
+
+
+                ripple.style.height =
+                    size+"px";
+
+
+                ripple.style.left =
+                    (
+                        e.clientX
+                        -
+                        rect.left
+                        -
+                        size/2
+                    )+"px";
+
+
+                ripple.style.top =
+                    (
+                        e.clientY
+                        -
+                        rect.top
+                        -
+                        size/2
+                    )+"px";
+
+
+                button.appendChild(
+                    ripple
                 );
 
-            ripple.className =
-                "ripple";
 
-            const rect =
-                button.getBoundingClientRect();
-
-            const size =
-                Math.max(
-                    rect.width,
-                    rect.height
+                setTimeout(
+                    ()=>{
+                        ripple.remove();
+                    },
+                    600
                 );
 
-            ripple.style.width =
-                size + "px";
+            }
+        );
 
-            ripple.style.height =
-                size + "px";
-
-            ripple.style.left =
-                (
-                    e.clientX -
-                    rect.left -
-                    size / 2
-                ) + "px";
-
-            ripple.style.top =
-                (
-                    e.clientY -
-                    rect.top -
-                    size / 2
-                ) + "px";
-
-            button.appendChild(
-                ripple
-            );
-
-            setTimeout(
-                ()=>{
-                    ripple.remove();
-                },
-                600
-            );
-
-        }
-    );
-
-});
+    }
+);
 
 
-/* ========================================
+/* =====================================================
    🃏 CARD 3D TILT
-======================================== */
+===================================================== */
 
 document.querySelectorAll(
     ".card"
-).forEach(card=>{
+).forEach(
+    card=>{
 
-    card.addEventListener(
-        "mousemove",
-        function(e){
+        card.addEventListener(
+            "mousemove",
+            function(e){
 
-            if(
-                card.classList.contains(
-                    "dragging"
-                )
-            ){
-                return;
+                if(
+                    card.classList
+                        .contains(
+                            "dragging"
+                        )
+                ){
+                    return;
+                }
+
+
+                const rect =
+                    card.getBoundingClientRect();
+
+
+                const x =
+                    e.clientX
+                    -
+                    rect.left;
+
+
+                const y =
+                    e.clientY
+                    -
+                    rect.top;
+
+
+                const rotateY =
+                    (
+                        (x/rect.width)-.5
+                    )*10;
+
+
+                const rotateX =
+                    (
+                        (y/rect.height)-.5
+                    )*-10;
+
+
+                card.style.transform =
+                    `
+                    perspective(1000px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    translateY(-8px)
+                    `;
             }
+        );
 
-            const rect =
-                card.getBoundingClientRect();
 
-            const x =
-                e.clientX - rect.left;
+        card.addEventListener(
+            "mouseleave",
+            function(){
 
-            const y =
-                e.clientY - rect.top;
+                if(
+                    card.classList
+                        .contains(
+                            "dragging"
+                        )
+                ){
+                    return;
+                }
 
-            const rotateY =
-                ((x / rect.width) - .5) * 10;
 
-            const rotateX =
-                ((y / rect.height) - .5) * -10;
-
-            card.style.transform =
-                `perspective(1000px)
-                 rotateX(${rotateX}deg)
-                 rotateY(${rotateY}deg)
-                 translateY(-8px)`;
-
-        }
-    );
-
-    card.addEventListener(
-        "mouseleave",
-        function(){
-
-            if(
-                card.classList.contains(
-                    "dragging"
-                )
-            ){
-                return;
+                card.style.transform="";
             }
+        );
 
-            card.style.transform = "";
-
-        }
-    );
-
-});
+    }
+);
 
 
-/* ========================================
-   🖱️ DRAG CARD
-======================================== */
-
-let activeCard = null;
-
-let offsetX = 0;
-let offsetY = 0;
+/* =====================================================
+   💗 HEART
+===================================================== */
 
 document.querySelectorAll(
-    ".card"
-).forEach(card=>{
+    ".heart"
+).forEach(
+    heart=>{
 
-    card.addEventListener(
-        "pointerdown",
-        function(e){
+        heart.addEventListener(
+            "click",
+            function(e){
 
-            if(
-                e.target.closest("button") ||
-                e.target.closest(".heart") ||
-                e.target.tagName === "IMG"
-            ){
-                return;
+                e.stopPropagation();
+
+
+                heart.classList.toggle(
+                    "liked"
+                );
+
+
+                if(
+                    heart.classList
+                        .contains(
+                            "liked"
+                        )
+                ){
+
+                    heart.textContent =
+                        "💖";
+
+                    showToast(
+                        "💗 เพิ่มความหวานแล้ว!"
+                    );
+
+                    playSweetSound();
+
+                }
+                else{
+
+                    heart.textContent =
+                        "💗";
+
+                }
+
             }
+        );
 
-            activeCard = card;
-
-            const rect =
-                card.getBoundingClientRect();
-
-            offsetX =
-                e.clientX - rect.left;
-
-            offsetY =
-                e.clientY - rect.top;
-
-            card.classList.add(
-                "dragging"
-            );
-
-            card.setPointerCapture(
-                e.pointerId
-            );
-
-        }
-    );
-
-    card.addEventListener(
-        "pointermove",
-        function(e){
-
-            if(activeCard !== card){
-                return;
-            }
-
-            const x =
-                e.clientX - offsetX;
-
-            const y =
-                e.clientY - offsetY;
-
-            const parent =
-                card.parentElement
-                .getBoundingClientRect();
-
-            const current =
-                card.getBoundingClientRect();
-
-            let moveX =
-                x - parent.left;
-
-            let moveY =
-                y - parent.top;
-
-            moveX = Math.max(
-                -100,
-                Math.min(
-                    100,
-                    moveX -
-                    (
-                        current.left -
-                        parent.left
-                    )
-                )
-            );
-
-            moveY = Math.max(
-                -80,
-                Math.min(
-                    80,
-                    moveY -
-                    (
-                        current.top -
-                        parent.top
-                    )
-                )
-            );
-
-            card.style.transform =
-                `translate(${moveX}px,${moveY}px)
-                 rotate(${moveX / 12}deg)
-                 scale(1.03)`;
-
-        }
-    );
-
-    card.addEventListener(
-        "pointerup",
-        function(){
-
-            activeCard = null;
-
-            card.classList.remove(
-                "dragging"
-            );
-
-            setTimeout(
-                ()=>{
-                    card.style.transform = "";
-                },
-                300
-            );
-
-        }
-    );
-
-});
+    }
+);
 
 
-/* ========================================
-   🌸 SCROLL REVEAL
-======================================== */
+/* =====================================================
+   👀 SCROLL REVEAL
+===================================================== */
 
 const observer =
     new IntersectionObserver(
@@ -2366,11 +3649,15 @@ const observer =
 
                         entry.target
                             .classList
-                            .add("show");
+                            .add(
+                                "show"
+                            );
 
-                        observer.unobserve(
-                            entry.target
-                        );
+
+                        observer
+                            .unobserve(
+                                entry.target
+                            );
 
                     }
 
@@ -2383,178 +3670,142 @@ const observer =
         }
     );
 
+
 document.querySelectorAll(
     ".reveal"
-).forEach(element=>{
+).forEach(
+    element=>{
 
-    observer.observe(element);
+        observer.observe(
+            element
+        );
 
-});
-
-
-/* ========================================
-   💗 HEART
-======================================== */
-
-document.querySelectorAll(
-    ".heart"
-).forEach(heart=>{
-
-    heart.addEventListener(
-        "click",
-        function(e){
-
-            e.stopPropagation();
-
-            const hearts = [
-                "💗",
-                "💖",
-                "💕",
-                "💘"
-            ];
-
-            if(
-                heart.textContent.trim()
-                === "💗"
-            ){
-                heart.textContent =
-                    hearts[
-                        Math.floor(
-                            Math.random()
-                            * hearts.length
-                        )
-                    ];
-            }
-
-            heart.animate(
-                [
-                    {
-                        transform:"scale(1)"
-                    },
-                    {
-                        transform:
-                            "scale(1.5) rotate(15deg)"
-                    },
-                    {
-                        transform:"scale(1)"
-                    }
-                ],
-                {
-                    duration:500,
-                    easing:
-                        "cubic-bezier(.2,1.5,.4,1)"
-                }
-            );
-
-        }
-    );
-
-});
+    }
+);
 
 
-/* ========================================
-   🍭 SECRET CANDY
-======================================== */
+/* =====================================================
+   🍬 SECRET CANDY
+===================================================== */
 
 const secretCandy =
     document.getElementById(
         "secretCandy"
     );
 
-const secretMessage =
-    document.getElementById(
-        "secretMessage"
-    );
 
 secretCandy.addEventListener(
     "click",
     function(){
 
-        secretMessage.classList.add(
-            "active"
+        createCandyExplosion();
+
+        showToast(
+            "🍭 You found the secret candy! ✨"
         );
 
-        createCandyExplosion(
-            window.innerWidth / 2,
-            window.innerHeight / 2
-        );
+        playSweetSound();
 
     }
 );
 
-function closeSecret(){
 
-    secretMessage.classList.remove(
-        "active"
-    );
+function createCandyExplosion(){
 
-}
+    const symbols=[
 
-
-/* ========================================
-   💥 CANDY EXPLOSION
-======================================== */
-
-function createCandyExplosion(x,y){
-
-    const candies = [
         "🍭",
         "🍬",
+        "🍩",
         "🧁",
         "🍰",
-        "🍩",
         "🍓",
-        "✨",
-        "💗"
+        "💗",
+        "✨"
+
     ];
 
-    for(let i=0;i<25;i++){
 
-        const candy =
-            document.createElement("div");
+    const rect =
+        secretCandy
+            .getBoundingClientRect();
 
-        candy.className =
+
+    const centerX =
+        rect.left
+        +
+        rect.width/2;
+
+
+    const centerY =
+        rect.top
+        +
+        rect.height/2;
+
+
+    for(
+        let i=0;
+        i<30;
+        i++
+    ){
+
+        const particle =
+            document.createElement(
+                "div"
+            );
+
+
+        particle.className =
             "click-particle";
 
-        candy.textContent =
-            candies[
+
+        particle.textContent =
+            symbols[
                 Math.floor(
                     Math.random()
-                    * candies.length
+                    * symbols.length
                 )
             ];
 
-        candy.style.left =
-            x + "px";
 
-        candy.style.top =
-            y + "px";
+        particle.style.left =
+            centerX+"px";
 
-        candy.style.setProperty(
+
+        particle.style.top =
+            centerY+"px";
+
+
+        particle.style.setProperty(
             "--x",
-            (Math.random()*500-250)
-            + "px"
+            (
+                Math.random()
+                *500
+                -250
+            )+"px"
         );
 
-        candy.style.setProperty(
+
+        particle.style.setProperty(
             "--y",
-            (Math.random()*500-250)
-            + "px"
+            (
+                Math.random()
+                *400
+                -200
+            )+"px"
         );
 
-        candy.style.fontSize =
-            (15 + Math.random()*25)
-            + "px";
 
         document.body.appendChild(
-            candy
+            particle
         );
+
 
         setTimeout(
             ()=>{
-                candy.remove();
+                particle.remove();
             },
-            900
+            1000
         );
 
     }
@@ -2562,127 +3813,296 @@ function createCandyExplosion(x,y){
 }
 
 
-/* ========================================
-   ⌨️ SECRET KEY
-   พิมพ์ SWEET
-======================================== */
+/* =====================================================
+   🍞 TOAST
+===================================================== */
 
-let secretCode = "";
-
-document.addEventListener(
-    "keydown",
-    function(e){
-
-        secretCode +=
-            e.key.toUpperCase();
-
-        if(secretCode.length > 5){
-
-            secretCode =
-                secretCode.slice(-5);
-
-        }
-
-        if(secretCode === "SWEET"){
-
-            secretMessage.classList.add(
-                "active"
-            );
-
-            createCandyExplosion(
-                window.innerWidth / 2,
-                window.innerHeight / 2
-            );
-
-            secretCode = "";
-
-        }
-
-    }
-);
+let toastTimer;
 
 
-/* ========================================
-   🔊 SIMPLE SOUND
-======================================== */
+function showToast(message){
 
-let audioContext = null;
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        toastTimer
+    );
+
+
+    toastTimer =
+        setTimeout(
+            function(){
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            2200
+        );
+
+}
+
+
+/* =====================================================
+   🔊 SWEET SOUND
+   Generated with Web Audio API
+===================================================== */
 
 function playSweetSound(){
 
     try{
 
-        if(!audioContext){
+        const AudioContext =
+            window.AudioContext
+            ||
+            window.webkitAudioContext;
 
-            audioContext =
-                new (
-                    window.AudioContext ||
-                    window.webkitAudioContext
-                )();
 
-        }
+        const audio =
+            new AudioContext();
+
 
         const oscillator =
-            audioContext.createOscillator();
+            audio.createOscillator();
+
 
         const gain =
-            audioContext.createGain();
+            audio.createGain();
+
 
         oscillator.type =
             "sine";
 
-        oscillator.frequency.value =
-            700;
+
+        oscillator.frequency
+            .setValueAtTime(
+                523.25,
+                audio.currentTime
+            );
+
+
+        oscillator.frequency
+            .exponentialRampToValueAtTime(
+                783.99,
+                audio.currentTime+.12
+            );
+
 
         gain.gain.setValueAtTime(
             .08,
-            audioContext.currentTime
+            audio.currentTime
         );
+
 
         gain.gain.exponentialRampToValueAtTime(
             .001,
-            audioContext.currentTime + .15
+            audio.currentTime+.35
         );
 
-        oscillator.connect(gain);
+
+        oscillator.connect(
+            gain
+        );
+
 
         gain.connect(
-            audioContext.destination
+            audio.destination
         );
+
 
         oscillator.start();
 
+
         oscillator.stop(
-            audioContext.currentTime + .15
+            audio.currentTime+.35
         );
 
-    }catch(error){
+    }
+    catch(error){
 
-        console.log(
-            "Sound unavailable"
-        );
+        /* เสียงไม่รองรับก็ไม่เป็นไร */
 
     }
 
 }
 
 
-/* เล่นเสียงตอนกดปุ่ม */
+/* =====================================================
+   ⌨️ KEYBOARD SECRET
+   กด C เพื่อสร้าง Candy Rain
+===================================================== */
 
-document.querySelectorAll(
-    "button,.heart,.secret-candy"
-).forEach(element=>{
+document.addEventListener(
+    "keydown",
+    function(e){
 
-    element.addEventListener(
-        "click",
-        ()=>{
-            playSweetSound();
+        if(
+            e.key.toLowerCase()
+            ===
+            "c"
+        ){
+
+            candyRain();
+
         }
+
+    }
+);
+
+
+function candyRain(){
+
+    const symbols=[
+
+        "🍭",
+        "🍬",
+        "🍩",
+        "🧁",
+        "🍰",
+        "🍪",
+        "🍓",
+        "💗",
+        "✨"
+
+    ];
+
+
+    for(
+        let i=0;
+        i<45;
+        i++
+    ){
+
+        const candy =
+            document.createElement(
+                "div"
+            );
+
+
+        candy.className =
+            "click-particle";
+
+
+        candy.textContent =
+            symbols[
+                Math.floor(
+                    Math.random()
+                    * symbols.length
+                )
+            ];
+
+
+        candy.style.left =
+            Math.random()*100
+            +"vw";
+
+
+        candy.style.top =
+            "-30px";
+
+
+        candy.style.setProperty(
+            "--x",
+            (
+                Math.random()*150-75
+            )+"px"
+        );
+
+
+        candy.style.setProperty(
+            "--y",
+            (
+                Math.random()*800+300
+            )+"px"
+        );
+
+
+        candy.style.animationDuration =
+            (
+                Math.random()*1.5+1
+            )+"s";
+
+
+        document.body.appendChild(
+            candy
+        );
+
+
+        setTimeout(
+            ()=>{
+                candy.remove();
+            },
+            2500
+        );
+
+    }
+
+
+    showToast(
+        "🍬 CANDY RAIN!!! 🍬"
     );
 
-});
+
+    playSweetSound();
+
+}
+
+
+/* =====================================================
+   📱 PREVENT DRAG IMAGE
+===================================================== */
+
+document.querySelectorAll(
+    "img"
+).forEach(
+    image=>{
+
+        image.addEventListener(
+            "dragstart",
+            e=>{
+                e.preventDefault();
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   🎀 INITIAL BUBBLES
+===================================================== */
+
+for(
+    let i=0;
+    i<8;
+    i++
+){
+
+    setTimeout(
+        createBubble,
+        i*400
+    );
+
+}
+
 
 </script>
 
+
 </body>
+
 </html>
