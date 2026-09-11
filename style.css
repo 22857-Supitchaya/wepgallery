@@ -4624,3 +4624,540 @@ footer p {
     }
 
 }
+
+/* =========================================================
+   🍭 REAL THEME COLOR OVERRIDE
+   ========================================================= */
+
+/* =========================
+   🍓 STRAWBERRY
+   ========================= */
+
+body:not(.blueberry):not(.chocolate):not(.lemon):not(.cotton):not(.galaxy) {
+
+    --theme-main: #ff6fae;
+    --theme-dark: #e94f91;
+    --theme-bg1: #ffc1da;
+    --theme-bg2: #ffdbea;
+    --theme-bg3: #e8c9ff;
+    --theme-text: #67485d;
+
+}
+
+
+/* =========================
+   🫐 BLUEBERRY
+   ========================= */
+
+body.blueberry {
+
+    --theme-main: #7285ff;
+    --theme-dark: #4f5ddd;
+    --theme-bg1: #bfc8ff;
+    --theme-bg2: #d8c8ff;
+    --theme-bg3: #b9e8ff;
+    --theme-text: #363967;
+
+}
+
+
+/* =========================
+   🍫 CHOCOLATE
+   ========================= */
+
+body.chocolate {
+
+    --theme-main: #a86642;
+    --theme-dark: #713c27;
+    --theme-bg1: #d9ad88;
+    --theme-bg2: #f0d0b5;
+    --theme-bg3: #ffe5c9;
+    --theme-text: #54352b;
+
+}
+
+
+/* =========================
+   🍋 LEMON
+   ========================= */
+
+body.lemon {
+
+    --theme-main: #e5b928;
+    --theme-dark: #b88a00;
+    --theme-bg1: #fff09a;
+    --theme-bg2: #f5ffc2;
+    --theme-bg3: #d7f2bd;
+    --theme-text: #5d5523;
+
+}
+
+
+/* =========================
+   🍬 COTTON CANDY
+   ========================= */
+
+body.cotton {
+
+    --theme-main: #ed78c2;
+    --theme-dark: #c94da0;
+    --theme-bg1: #ffd1ec;
+    --theme-bg2: #d9d3ff;
+    --theme-bg3: #c9efff;
+    --theme-text: #60436d;
+
+}
+
+
+/* =========================
+   🌌 GALAXY CANDY
+   ========================= */
+
+body.galaxy {
+
+    --theme-main: #9b7cff;
+    --theme-dark: #6548d9;
+    --theme-bg1: #171332;
+    --theme-bg2: #30205c;
+    --theme-bg3: #102f55;
+    --theme-text: #f4edff;
+
+}
+
+
+/* =========================================================
+   🌈 BACKGROUND
+   ========================================================= */
+
+body {
+
+    background:
+
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(255,255,255,.75),
+            transparent 18%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(255,255,255,.45),
+            transparent 20%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--theme-bg1),
+            var(--theme-bg2),
+            var(--theme-bg3)
+        );
+
+    color: var(--theme-text);
+
+    transition:
+        background 1s ease,
+        color .6s ease;
+
+}
+
+
+/* =========================================================
+   🌌 GALAXY SPECIAL BACKGROUND
+   ========================================================= */
+
+body.galaxy {
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(155,124,255,.35),
+            transparent 20%
+        ),
+
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(90,180,255,.25),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 50% 80%,
+            rgba(255,80,180,.2),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #100c25,
+            #211447,
+            #102e52
+        );
+
+}
+
+
+/* =========================================================
+   🎀 NAVBAR
+   ========================================================= */
+
+.navbar {
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--theme-main) 35%,
+            white
+        );
+
+}
+
+
+.nav-logo {
+
+    color:
+        var(--theme-dark) !important;
+
+}
+
+
+.nav-links a:hover {
+
+    color:
+        var(--theme-dark) !important;
+
+}
+
+
+.theme-open {
+
+    color:
+        var(--theme-dark) !important;
+
+}
+
+
+/* =========================================================
+   ✨ HERO
+   ========================================================= */
+
+.hero-badge {
+
+    color:
+        var(--theme-dark) !important;
+
+}
+
+
+.hero h1 {
+
+    color:
+        var(--theme-dark) !important;
+
+    text-shadow:
+
+        0 5px white,
+
+        0 10px
+        color-mix(
+            in srgb,
+            var(--theme-main) 35%,
+            white
+        ),
+
+        0 20px 45px
+        rgba(0,0,0,.15);
+
+}
+
+
+.hero-button {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--theme-main),
+            var(--theme-dark)
+        ) !important;
+
+}
+
+
+/* =========================================================
+   🍰 SECTION HEADINGS
+   ========================================================= */
+
+.heading-label {
+
+    color:
+        var(--theme-dark) !important;
+
+}
+
+
+.section-heading h2 {
+
+    color:
+        var(--theme-dark) !important;
+
+}
+
+
+/* =========================================================
+   🍭 CARDS
+   ========================================================= */
+
+.card {
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--theme-main) 25%,
+            white
+        ) !important;
+
+}
+
+
+.card-number {
+
+    color:
+        var(--theme-dark) !important;
+
+}
+
+
+.card-tag {
+
+    color:
+        var(--theme-dark) !important;
+
+}
+
+
+.card h3 {
+
+    color:
+        var(--theme-dark) !important;
+
+}
+
+
+.view-button {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--theme-main),
+            var(--theme-dark)
+        ) !important;
+
+}
+
+
+/* =========================================================
+   💗 HEART
+   ========================================================= */
+
+.heart.liked {
+
+    color:
+        var(--theme-dark) !important;
+
+}
+
+
+/* =========================================================
+   📚 ABOUT
+   ========================================================= */
+
+.about-card {
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--theme-main) 30%,
+            white
+        ) !important;
+
+}
+
+
+.about-text h2 {
+
+    color:
+        var(--theme-dark) !important;
+
+}
+
+
+.tags span {
+
+    background:
+
+        color-mix(
+            in srgb,
+            var(--theme-main) 15%,
+            white
+        ) !important;
+
+    color:
+        var(--theme-dark) !important;
+
+}
+
+
+/* =========================================================
+   💬 QUOTE
+   ========================================================= */
+
+.quote-card {
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--theme-main) 30%,
+            white
+        ) !important;
+
+}
+
+
+.quote-card p {
+
+    color:
+        var(--theme-dark) !important;
+
+}
+
+
+/* =========================================================
+   🎨 THEME PANEL
+   ========================================================= */
+
+.theme-panel {
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--theme-main) 35%,
+            white
+        );
+
+}
+
+
+.theme-option:hover {
+
+    border-color:
+        var(--theme-main) !important;
+
+}
+
+
+.theme-option.active {
+
+    border-color:
+        var(--theme-main) !important;
+
+    background:
+
+        color-mix(
+            in srgb,
+            var(--theme-main) 12%,
+            white
+        ) !important;
+
+}
+
+
+/* =========================================================
+   🌈 THEME TRANSITION
+   ========================================================= */
+
+body,
+.card,
+.about-card,
+.quote-card,
+.navbar,
+.theme-panel,
+.theme-option,
+.theme-open,
+.view-button,
+.hero-button {
+
+    transition:
+
+        background 1s ease,
+        background-color 1s ease,
+        border-color .7s ease,
+        color .7s ease,
+        box-shadow .7s ease;
+
+}
+
+
+/* =========================================================
+   🌌 GALAXY TEXT
+   ========================================================= */
+
+body.galaxy .nav-links a {
+
+    color:
+        #eee7ff !important;
+
+}
+
+
+body.galaxy .hero p {
+
+    color:
+        #ddd5f5 !important;
+
+}
+
+
+body.galaxy .card,
+body.galaxy .about-card,
+body.galaxy .quote-card {
+
+    background:
+        rgba(30,20,60,.72) !important;
+
+    color:
+        #f5efff;
+
+    border-color:
+        rgba(180,150,255,.35) !important;
+
+}
+
+
+body.galaxy .card p,
+body.galaxy .about-text p {
+
+    color:
+        #d8d0ee !important;
+
+}
+
+
+/* =========================================================
+   ✨ GALAXY GLOW
+   ========================================================= */
+
+body.galaxy .hero h1,
+body.galaxy .section-heading h2,
+body.galaxy .about-text h2 {
+
+    text-shadow:
+
+        0 0 10px
+        rgba(155,124,255,.7),
+
+        0 0 30px
+        rgba(100,80,255,.5);
+
+}
