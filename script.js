@@ -1556,3 +1556,136 @@ window.addEventListener(
 
     }
 );
+
+/* =========================================================
+   🎵 SWEET CANDY MUSIC PLAYER
+========================================================= */
+
+const music =
+    document.getElementById(
+        "bgMusic"
+    );
+
+
+const musicToggle =
+    document.getElementById(
+        "musicToggle"
+    );
+
+
+const musicPlayer =
+    document.getElementById(
+        "musicPlayer"
+    );
+
+
+if (
+    music &&
+    musicToggle &&
+    musicPlayer
+) {
+
+
+    musicToggle.addEventListener(
+        "click",
+        async () => {
+
+
+            if (
+                music.paused
+            ) {
+
+
+                try {
+
+                    await music.play();
+
+                    musicToggle.textContent =
+                        "❚❚";
+
+                    musicToggle.setAttribute(
+                        "aria-label",
+                        "Pause music"
+                    );
+
+                    musicPlayer.classList.add(
+                        "playing"
+                    );
+
+
+                    createCandyExplosion(
+                        window.innerWidth - 80,
+                        window.innerHeight - 60,
+                        10
+                    );
+
+
+                }
+                catch (error) {
+
+                    console.error(
+                        "Music playback failed:",
+                        error
+                    );
+
+                }
+
+
+            }
+            else {
+
+
+                music.pause();
+
+
+                musicToggle.textContent =
+                    "▶";
+
+
+                musicToggle.setAttribute(
+                    "aria-label",
+                    "Play music"
+                );
+
+
+                musicPlayer.classList.remove(
+                    "playing"
+                );
+
+
+            }
+
+
+        }
+    );
+
+
+    music.addEventListener(
+        "ended",
+        () => {
+
+
+            music.currentTime =
+                0;
+
+
+            musicToggle.textContent =
+                "▶";
+
+
+            musicToggle.setAttribute(
+                "aria-label",
+                "Play music"
+            );
+
+
+            musicPlayer.classList.remove(
+                "playing"
+            );
+
+
+        }
+    );
+
+
+}
