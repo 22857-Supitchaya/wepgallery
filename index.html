@@ -1472,7 +1472,6 @@
     </div>
 
     <div class="music-info">
-
         <div class="music-label">
             NOW PLAYING
         </div>
@@ -1480,35 +1479,77 @@
         <div class="music-title">
             Play Date
         </div>
-
     </div>
 
     <button
         class="music-toggle"
         id="musicToggle"
-        type="button"
-        aria-label="Play music"
-    >
+        type="button">
+
         ▶
+
     </button>
 
-    <audio
-    id="bgMusic"
-    preload="metadata"
-    controls
->
-    <source
-        src="./play-date.mp3"
-        type="audio/mpeg"
-    >
-    เบราว์เซอร์ไม่รองรับการเล่นเพลง
-</audio>
+    <audio id="bgMusic" preload="metadata">
+        <source src="./play-date.mp3" type="audio/mpeg">
+    </audio>
 
 </div>
 
-    <script src="script.js"></script>
+<script>
+
+    const musicPlayer =
+        document.getElementById("musicPlayer");
+
+    const musicToggle =
+        document.getElementById("musicToggle");
+
+    const bgMusic =
+        document.getElementById("bgMusic");
 
 
+    musicToggle.addEventListener("click", async () => {
+
+        try {
+
+            if (bgMusic.paused) {
+
+                await bgMusic.play();
+
+                musicToggle.textContent = "⏸";
+
+                musicPlayer.classList.add("playing");
+
+            } else {
+
+                bgMusic.pause();
+
+                musicToggle.textContent = "▶";
+
+                musicPlayer.classList.remove("playing");
+
+            }
+
+        } catch (error) {
+
+            console.error("Music Error:", error);
+
+            alert("เปิดเพลงไม่ได้ กรุณาตรวจสอบชื่อไฟล์ play-date.mp3");
+
+        }
+
+    });
+
+
+    bgMusic.addEventListener("ended", () => {
+
+        musicToggle.textContent = "▶";
+
+        musicPlayer.classList.remove("playing");
+
+    });
+
+</script>
 </body>
 
 </html>
