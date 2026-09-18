@@ -1597,6 +1597,9 @@ if (
 
 
                 try {
+bgMusic.volume = 1;
+bgMusic.muted = false;
+bgMusic.currentTime = 0;
 
                     await music.play();
 
